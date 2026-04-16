@@ -1,0 +1,651 @@
+{
+  "users": [
+    {
+      "id": "101",
+      "name": "Larry Johnson",
+      "username": "larrycodes",
+      "role": "Frontend Developer",
+      "email": "larry.johnson@devconnect.io",
+      "description": "Frontend developer focused on building accessible, responsive user interfaces with React and TypeScript.",
+      "workplace": "NovaStack Labs",
+      "location": "Accra, Ghana",
+      "avatar": "https://i.pravatar.cc/150?img=11",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "CSS"
+      ],
+      "followers": 342,
+      "following": 198,
+      "isVerified": true,
+      "joinedAt": "2025-08-14T09:30:00Z"
+    },
+    {
+      "id": "102",
+      "name": "Maya Thompson",
+      "username": "mayabuilds",
+      "role": "Backend Engineer",
+      "email": "maya.thompson@devconnect.io",
+      "description": "Backend engineer who enjoys designing APIs, working with Node.js, and building scalable services.",
+      "workplace": "ByteForge Systems",
+      "location": "Nairobi, Kenya",
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "skills": [
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "followers": 510,
+      "following": 167,
+      "isVerified": false,
+      "joinedAt": "2025-07-02T12:15:00Z"
+    },
+    {
+      "id": "103",
+      "name": "Daniel Mensah",
+      "username": "danieldebugs",
+      "role": "Fullstack Developer",
+      "email": "daniel.mensah@devconnect.io",
+      "description": "Fullstack dev passionate about clean architecture, developer experience, and shipping useful products.",
+      "workplace": "StackWave",
+      "location": "Kumasi, Ghana",
+      "avatar": "https://i.pravatar.cc/150?img=13",
+      "skills": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Tailwind CSS"
+      ],
+      "followers": 281,
+      "following": 221,
+      "isVerified": false,
+      "joinedAt": "2025-06-19T16:40:00Z"
+    },
+    {
+      "id": "104",
+      "name": "Sophia Carter",
+      "username": "sophiasync",
+      "role": "UI Engineer",
+      "email": "sophia.carter@devconnect.io",
+      "description": "UI engineer who loves component systems, design tokens, and delightful product experiences.",
+      "workplace": "PixelGrid Studio",
+      "location": "Lagos, Nigeria",
+      "avatar": "https://i.pravatar.cc/150?img=14",
+      "skills": [
+        "JavaScript",
+        "Figma",
+        "SCSS",
+        "Design Systems"
+      ],
+      "followers": 624,
+      "following": 189,
+      "isVerified": true,
+      "joinedAt": "2025-05-28T08:20:00Z"
+    },
+    {
+      "id": "105",
+      "name": "Ethan Brooks",
+      "username": "ethanapi",
+      "role": "API Developer",
+      "email": "ethan.brooks@devconnect.io",
+      "description": "API-focused developer building RESTful and event-driven systems with strong attention to performance.",
+      "workplace": "CloudNest Tech",
+      "location": "Cape Town, South Africa",
+      "avatar": "https://i.pravatar.cc/150?img=15",
+      "skills": [
+        "REST APIs",
+        "Node.js",
+        "Redis",
+        "AWS"
+      ],
+      "followers": 198,
+      "following": 144,
+      "isVerified": false,
+      "joinedAt": "2025-09-01T14:05:00Z"
+    },
+    {
+      "id": "106",
+      "name": "Ava Richardson",
+      "username": "avawritescode",
+      "role": "Software Engineer",
+      "email": "ava.richardson@devconnect.io",
+      "description": "Software engineer who enjoys solving practical problems and mentoring junior developers.",
+      "workplace": "LaunchBridge",
+      "location": "London, UK",
+      "avatar": "https://i.pravatar.cc/150?img=16",
+      "skills": [
+        "Python",
+        "Django",
+        "React",
+        "Testing"
+      ],
+      "followers": 433,
+      "following": 257,
+      "isVerified": false,
+      "joinedAt": "2025-04-11T10:55:00Z"
+    },
+    {
+      "id": "107",
+      "name": "Noah Williams",
+      "username": "noahshipsit",
+      "role": "Product Engineer",
+      "email": "noah.williams@devconnect.io",
+      "description": "Product-minded engineer who enjoys turning messy ideas into polished features that users love.",
+      "workplace": "ShipFast Inc.",
+      "location": "Austin, TX, USA",
+      "avatar": "https://i.pravatar.cc/150?img=17",
+      "skills": [
+        "React",
+        "Next.js",
+        "Supabase",
+        "Product Thinking"
+      ],
+      "followers": 389,
+      "following": 205,
+      "isVerified": true,
+      "joinedAt": "2025-03-06T18:30:00Z"
+    },
+    {
+      "id": "108",
+      "name": "Grace Kim",
+      "username": "gracequeries",
+      "role": "Data Engineer",
+      "email": "grace.kim@devconnect.io",
+      "description": "Data engineer interested in pipelines, SQL performance, analytics, and turning raw data into decisions.",
+      "workplace": "InsightFlow",
+      "location": "Toronto, Canada",
+      "avatar": "https://i.pravatar.cc/150?img=18",
+      "skills": [
+        "SQL",
+        "Python",
+        "Airflow",
+        "BigQuery"
+      ],
+      "followers": 275,
+      "following": 132,
+      "isVerified": false,
+      "joinedAt": "2025-02-22T07:45:00Z"
+    },
+    {
+      "id": "109",
+      "name": "Michael Chen",
+      "username": "michaelbuilds",
+      "role": "Mobile Developer",
+      "email": "michael.chen@devconnect.io",
+      "description": "Mobile developer building cross-platform apps with a focus on smooth UX and maintainable codebases.",
+      "workplace": "AppForge Mobile",
+      "location": "Singapore",
+      "avatar": "https://i.pravatar.cc/150?img=19",
+      "skills": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Mobile UI"
+      ],
+      "followers": 547,
+      "following": 240,
+      "isVerified": true,
+      "joinedAt": "2025-01-18T11:10:00Z"
+    },
+    {
+      "id": "110",
+      "name": "Chloe Martinez",
+      "username": "chloescripts",
+      "role": "DevOps Engineer",
+      "email": "chloe.martinez@devconnect.io",
+      "description": "DevOps engineer automating deployments, improving reliability, and making CI/CD pipelines less painful.",
+      "workplace": "InfraPulse",
+      "location": "Berlin, Germany",
+      "avatar": "https://i.pravatar.cc/150?img=20",
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "GitHub Actions",
+        "Terraform"
+      ],
+      "followers": 312,
+      "following": 174,
+      "isVerified": false,
+      "joinedAt": "2024-12-09T15:25:00Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "5",
+      "title": "Caching API responses manually is teaching me a lot",
+      "content": "Doing the classic Redux thunk path before RTK Query is actually helping me appreciate what RTK Query automates for you under the hood.",
+      "userId": 105,
+      "like_count": 41,
+      "isBookmarked": true,
+      "createdAt": "2026-03-20T12:00:00Z"
+    },
+    {
+      "id": "8",
+      "title": "SQL performance tuning is underrated",
+      "content": "A couple of indexes and one query rewrite reduced response time significantly. Sometimes the best optimization is just better querying.",
+      "userId": 108,
+      "like_count": 16,
+      "isBookmarked": true,
+      "createdAt": "2026-03-20T14:10:00Z"
+    },
+    {
+      "id": "9",
+      "title": "Flutter animations can be addictive",
+      "content": "I said I’d just add a simple transition and somehow ended up polishing micro-interactions for an hour. Worth it though.",
+      "userId": 109,
+      "like_count": 38,
+      "isBookmarked": false,
+      "createdAt": "2026-03-20T15:00:00Z"
+    },
+    {
+      "id": "10",
+      "title": "CI pipelines should fail loudly",
+      "content": "Updated a GitHub Actions workflow today so failures are clearer and easier to diagnose. Good logs save real time.",
+      "userId": 110,
+      "like_count": 14,
+      "isBookmarked": false,
+      "createdAt": "2026-03-20T16:25:00Z"
+    },
+    {
+      "id": "11",
+      "title": "Thunks feel less scary now",
+      "content": "Async logic looked messy at first, but once I understood pending, fulfilled, and rejected states, the pattern started to feel natural.",
+      "userId": 101,
+      "like_count": 31,
+      "isBookmarked": true,
+      "createdAt": "2026-03-21T08:40:00Z"
+    },
+    {
+      "id": "12",
+      "title": "Rate limiting is one of those must-have backend features",
+      "content": "Added basic request throttling to a side project API. It’s one of those features you don’t think about until you really need it.",
+      "userId": 102,
+      "like_count": 19,
+      "isBookmarked": false,
+      "createdAt": "2026-03-21T09:25:00Z"
+    },
+    {
+      "id": "13",
+      "title": "Component composition over giant components",
+      "content": "Split one oversized page into smaller reusable pieces today and immediately felt less stressed. Cleaner code, easier testing.",
+      "userId": 103,
+      "like_count": 24,
+      "isBookmarked": false,
+      "createdAt": "2026-03-21T10:15:00Z"
+    },
+    {
+      "id": "14",
+      "title": "Spacing can make or break a UI",
+      "content": "No new features today, just tightened layout spacing and typography rhythm. The interface instantly looked more professional.",
+      "userId": 104,
+      "like_count": 45,
+      "isBookmarked": true,
+      "createdAt": "2026-03-21T11:05:00Z"
+    },
+    {
+      "id": "15",
+      "title": "Why I still like REST for learning",
+      "content": "GraphQL is cool, but for practicing data fetching patterns and client state flow, a simple REST API keeps the learning signal really clear.",
+      "userId": 105,
+      "like_count": 26,
+      "isBookmarked": false,
+      "createdAt": "2026-03-21T12:20:00Z"
+    },
+    {
+      "id": "16",
+      "title": "Testing reducers gave me more confidence",
+      "content": "Wrote a few reducer tests today and it made refactoring way less stressful. Fast feedback loops are underrated.",
+      "userId": 106,
+      "like_count": 33,
+      "isBookmarked": true,
+      "createdAt": "2026-03-21T13:10:00Z"
+    },
+    {
+      "id": "17",
+      "title": "Feature folders are winning me over",
+      "content": "Grouping slices, selectors, components, and hooks by feature instead of file type is making the project feel much easier to navigate.",
+      "userId": 107,
+      "like_count": 21,
+      "isBookmarked": false,
+      "createdAt": "2026-03-21T14:00:00Z"
+    },
+    {
+      "id": "19",
+      "title": "State design matters more than I thought",
+      "content": "A lot of bugs disappeared once I stopped stuffing everything into arrays and started being intentional about state shape.",
+      "userId": 109,
+      "like_count": 36,
+      "isBookmarked": true,
+      "createdAt": "2026-03-21T15:35:00Z"
+    },
+    {
+      "id": "vduymf4gJMI",
+      "title": "Redux Toolkit Query's Invalidates Tag",
+      "content": "invalidates tags",
+      "userId": 104,
+      "like_count": 0,
+      "isBookmarked": false,
+      "createdAt": "2026-04-16T11:07:27.290Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "content": "createEntityAdapter really changes the game once it clicks 🔥",
+      "userId": 103,
+      "postId": 1,
+      "createdAt": "2026-03-20T08:30:00Z"
+    },
+    {
+      "id": "2",
+      "content": "Facts. Normalized state makes everything feel predictable.",
+      "userId": 106,
+      "postId": 1,
+      "createdAt": "2026-03-20T08:45:00Z"
+    },
+    {
+      "id": "3",
+      "content": "Consistent error handling is underrated 👏",
+      "userId": 105,
+      "postId": 2,
+      "createdAt": "2026-03-20T09:20:00Z"
+    },
+    {
+      "id": "4",
+      "content": "Debugging gets so much easier when responses are predictable.",
+      "userId": 101,
+      "postId": 2,
+      "createdAt": "2026-03-20T09:35:00Z"
+    },
+    {
+      "id": "5",
+      "content": "Redux DevTools is honestly one of the best learning tools.",
+      "userId": 101,
+      "postId": 3,
+      "createdAt": "2026-03-20T10:35:00Z"
+    },
+    {
+      "id": "6",
+      "content": "That feeling when everything flows correctly 😄",
+      "userId": 107,
+      "postId": 3,
+      "createdAt": "2026-03-20T10:50:00Z"
+    },
+    {
+      "id": "7",
+      "content": "Design systems = speed + consistency 💯",
+      "userId": 103,
+      "postId": 4,
+      "createdAt": "2026-03-20T11:25:00Z"
+    },
+    {
+      "id": "8",
+      "content": "Once you go design system, no going back.",
+      "userId": 109,
+      "postId": 4,
+      "createdAt": "2026-03-20T11:40:00Z"
+    },
+    {
+      "id": "9",
+      "content": "Doing it manually first really builds understanding.",
+      "userId": 101,
+      "postId": 5,
+      "createdAt": "2026-03-20T12:15:00Z"
+    },
+    {
+      "id": "10",
+      "content": "RTK Query will feel like magic after this 😂",
+      "userId": 110,
+      "postId": 5,
+      "createdAt": "2026-03-20T12:25:00Z"
+    },
+    {
+      "id": "11",
+      "content": "Memoized selectors are elite 👌",
+      "userId": 103,
+      "postId": 6,
+      "createdAt": "2026-03-20T13:00:00Z"
+    },
+    {
+      "id": "12",
+      "content": "They reduce so much unnecessary re-rendering.",
+      "userId": 105,
+      "postId": 6,
+      "createdAt": "2026-03-20T13:10:00Z"
+    },
+    {
+      "id": "13",
+      "content": "Those small UI details really elevate a product.",
+      "userId": 104,
+      "postId": 7,
+      "createdAt": "2026-03-20T13:45:00Z"
+    },
+    {
+      "id": "14",
+      "content": "Users notice these things more than we think.",
+      "userId": 106,
+      "postId": 7,
+      "createdAt": "2026-03-20T13:55:00Z"
+    },
+    {
+      "id": "15",
+      "content": "Indexes are lifesavers 🙌",
+      "userId": 102,
+      "postId": 8,
+      "createdAt": "2026-03-20T14:25:00Z"
+    },
+    {
+      "id": "16",
+      "content": "Query optimization > premature scaling.",
+      "userId": 107,
+      "postId": 8,
+      "createdAt": "2026-03-20T14:35:00Z"
+    },
+    {
+      "id": "17",
+      "content": "Flutter makes it too easy to overdo animations 😂",
+      "userId": 101,
+      "postId": 9,
+      "createdAt": "2026-03-20T15:15:00Z"
+    },
+    {
+      "id": "18",
+      "content": "But when done right, it's beautiful.",
+      "userId": 104,
+      "postId": 9,
+      "createdAt": "2026-03-20T15:25:00Z"
+    },
+    {
+      "id": "19",
+      "content": "Clear logs save HOURS.",
+      "userId": 105,
+      "postId": 10,
+      "createdAt": "2026-03-20T16:40:00Z"
+    },
+    {
+      "id": "20",
+      "content": "Nothing worse than vague pipeline failures.",
+      "userId": 108,
+      "postId": 10,
+      "createdAt": "2026-03-20T16:50:00Z"
+    },
+    {
+      "id": "21",
+      "content": "Once you understand the lifecycle, thunks are chill.",
+      "userId": 103,
+      "postId": 11,
+      "createdAt": "2026-03-21T08:55:00Z"
+    },
+    {
+      "id": "22",
+      "content": "pending/fulfilled/rejected pattern is clean.",
+      "userId": 106,
+      "postId": 11,
+      "createdAt": "2026-03-21T09:05:00Z"
+    },
+    {
+      "id": "23",
+      "content": "Rate limiting should be default in every API.",
+      "userId": 105,
+      "postId": 12,
+      "createdAt": "2026-03-21T09:40:00Z"
+    },
+    {
+      "id": "24",
+      "content": "Especially for public endpoints.",
+      "userId": 110,
+      "postId": 12,
+      "createdAt": "2026-03-21T09:50:00Z"
+    },
+    {
+      "id": "25",
+      "content": "Breaking things into smaller components always wins.",
+      "userId": 101,
+      "postId": 13,
+      "createdAt": "2026-03-21T10:30:00Z"
+    },
+    {
+      "id": "26",
+      "content": "Easier to test and reason about too.",
+      "userId": 106,
+      "postId": 13,
+      "createdAt": "2026-03-21T10:40:00Z"
+    },
+    {
+      "id": "27",
+      "content": "Spacing is such an underrated skill.",
+      "userId": 107,
+      "postId": 14,
+      "createdAt": "2026-03-21T11:20:00Z"
+    },
+    {
+      "id": "28",
+      "content": "Good UI is often just good spacing.",
+      "userId": 109,
+      "postId": 14,
+      "createdAt": "2026-03-21T11:30:00Z"
+    },
+    {
+      "id": "29",
+      "content": "REST keeps things simple for learning.",
+      "userId": 102,
+      "postId": 15,
+      "createdAt": "2026-03-21T12:35:00Z"
+    },
+    {
+      "id": "30",
+      "content": "GraphQL adds complexity too early sometimes.",
+      "userId": 108,
+      "postId": 15,
+      "createdAt": "2026-03-21T12:45:00Z"
+    },
+    {
+      "id": "31",
+      "content": "Tests give you real confidence to refactor.",
+      "userId": 103,
+      "postId": 16,
+      "createdAt": "2026-03-21T13:25:00Z"
+    },
+    {
+      "id": "32",
+      "content": "Especially with reducers, very deterministic.",
+      "userId": 101,
+      "postId": 16,
+      "createdAt": "2026-03-21T13:35:00Z"
+    },
+    {
+      "id": "33",
+      "content": "Feature folders scale really well.",
+      "userId": 104,
+      "postId": 17,
+      "createdAt": "2026-03-21T14:15:00Z"
+    },
+    {
+      "id": "34",
+      "content": "Way better than grouping by file type.",
+      "userId": 106,
+      "postId": 17,
+      "createdAt": "2026-03-21T14:25:00Z"
+    },
+    {
+      "id": "35",
+      "content": "Transforming data early simplifies components.",
+      "userId": 105,
+      "postId": 18,
+      "createdAt": "2026-03-21T15:05:00Z"
+    },
+    {
+      "id": "36",
+      "content": "Cleaner UI logic is always worth it.",
+      "userId": 107,
+      "postId": 18,
+      "createdAt": "2026-03-21T15:15:00Z"
+    },
+    {
+      "id": "37",
+      "content": "State shape decisions impact everything.",
+      "userId": 103,
+      "postId": 19,
+      "createdAt": "2026-03-21T15:50:00Z"
+    },
+    {
+      "id": "38",
+      "content": "Bad state design = endless bugs 😅",
+      "userId": 110,
+      "postId": 19,
+      "createdAt": "2026-03-21T16:00:00Z"
+    },
+    {
+      "id": "39",
+      "content": "RTK Query will clean up a lot of that boilerplate.",
+      "userId": 101,
+      "postId": 20,
+      "createdAt": "2026-03-21T16:35:00Z"
+    },
+    {
+      "id": "40",
+      "content": "You’ll appreciate it more after this setup.",
+      "userId": 105,
+      "postId": 20,
+      "createdAt": "2026-03-21T16:45:00Z"
+    },
+    {
+      "id": "qGqEKEgMhYI",
+      "content": "I definitely agree",
+      "postId": null,
+      "userId": 104,
+      "createdAt": "2026-04-13T14:30:46.526Z"
+    },
+    {
+      "id": "OT1S1hVugd8",
+      "content": "Write once, use anywhere !\n",
+      "postId": null,
+      "userId": 109,
+      "createdAt": "2026-04-13T14:31:31.488Z"
+    },
+    {
+      "id": "yGA1fynokfw",
+      "content": "mhuohj;",
+      "postId": null,
+      "userId": 101,
+      "createdAt": "2026-04-13T14:34:46.495Z"
+    },
+    {
+      "id": "k6zpZu2m7KI",
+      "content": "Once you get the hang of it, you are never going back to custom reducers for CRUD operations.",
+      "postId": null,
+      "userId": 105,
+      "createdAt": "2026-04-14T12:19:32.997Z"
+    },
+    {
+      "id": "51jI2lzGnzA",
+      "content": "zmdfgjdsg gufdisgdsfg ldfgjfdgdf goig\n",
+      "postId": null,
+      "userId": 105,
+      "createdAt": "2026-04-16T11:06:52.337Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

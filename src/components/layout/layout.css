@@ -1,0 +1,14 @@
+.layout {
+    display: flex;
+    /* background-color: red; */
+}
+
+
+.layout .content {
+    width: 100%;
+}
+
+
+.layout .outlet-content {
+    padding: 0 4rem;
+}

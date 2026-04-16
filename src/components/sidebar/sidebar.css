@@ -1,0 +1,49 @@
+.sidebar {
+    background-color: var(--purple-col);
+    width: 15rem;
+    min-height: 100vh;
+    padding: 1rem;
+    /* position: fixed; */
+}
+
+
+.sidebar .app-brand {
+    margin-bottom: 3rem;
+}
+
+
+.sidebar .app-brand h3 {
+    color: var(--white-col);
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+
+.sidebar .navigation {
+
+}
+
+
+.sidebar .nav-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    height: 3rem;
+    color: var(--white-col);
+    cursor: pointer;
+    border-radius: 0.625rem;
+    padding: 0.3rem;
+    transition: background 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+
+.sidebar .nav-item:hover {
+    background-color: var(--blue-col);
+}
+
+
+.sidebar .nav-title {
+    font-size: 1.1rem;
+}

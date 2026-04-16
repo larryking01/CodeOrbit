@@ -1,0 +1,18 @@
+.home {
+    margin-bottom: 2rem;
+}
+
+
+.home .header-text {
+    margin-bottom: 1rem;
+}
+
+
+.home .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 33rem));
+    grid-auto-rows: 18rem;
+    gap: 1rem;
+}
+
+
