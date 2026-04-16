@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# 🚀 CodeOrbit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CodeOrbit is a developer-focused social feed application built to explore modern state management patterns using Redux Toolkit.
 
-## Available Scripts
+The project simulates a real-world app where users can view, create, and interact with posts while maintaining synchronization between client-side state and a mock backend powered by JSON Server.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* 📄 View a list of posts
+* 👤 Associate posts with users
+* ❤️ Like and bookmark posts
+* 🗑️ Delete posts (with optimistic updates & rollback)
+* 🔄 Async data fetching with Redux Thunks
+* 🧠 Memoized selectors for derived state
+* ⚡ Normalized state using `createEntityAdapter`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧰 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React
+* Redux Toolkit
+* JavaScript / TypeScript
+* JSON Server (mock backend)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧠 Learning Goals
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project focuses on mastering:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Traditional Redux patterns (reducers, actions, thunks)
+* Optimistic UI updates
+* State normalization
+* Memoized selectors with `createSelector`
+* Client vs Server state management
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔄 Future Improvements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Refactor data fetching to RTK Query
+* Add comments feature
+* Add user profiles
+* Implement pagination and filtering
+* Improve UI/UX
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ▶️ Getting Started
 
-## Learn More
+### 1. Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2. Run JSON Server
 
-### Code Splitting
+```bash
+npx json-server --watch db.json --port 8000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Start the app
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📌 Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is part of a learning journey to deeply understand Redux before transitioning to RTK Query.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 👤 Author
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Larry Williams
