@@ -1,7 +1,7 @@
 import './addPost.css'
 import { getRandomUser } from '../../helpers/getRandomUser'
 import { useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { createPost } from '../../store/features/posts/posts.thunks'
 import { nanoid } from 'nanoid'
 

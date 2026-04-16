@@ -213,15 +213,6 @@
   ],
   "posts": [
     {
-      "id": "5",
-      "title": "Caching API responses manually is teaching me a lot",
-      "content": "Doing the classic Redux thunk path before RTK Query is actually helping me appreciate what RTK Query automates for you under the hood.",
-      "userId": 105,
-      "like_count": 41,
-      "isBookmarked": true,
-      "createdAt": "2026-03-20T12:00:00Z"
-    },
-    {
       "id": "8",
       "title": "SQL performance tuning is underrated",
       "content": "A couple of indexes and one query rewrite reduced response time significantly. Sometimes the best optimization is just better querying.",

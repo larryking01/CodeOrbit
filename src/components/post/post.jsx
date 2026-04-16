@@ -36,7 +36,7 @@ const Post = ({ post }) => {
             setShowReadText( false )
         }
 
-    },[showReadText])
+    },[showReadText, location])
 
 
 

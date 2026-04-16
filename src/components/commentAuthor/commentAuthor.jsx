@@ -1,7 +1,6 @@
 import './commentAuthor.css'
 import { useSelector } from "react-redux"
 import { selectPostAuthor } from "../../store/features/users/users.selectors"
-import { GoDotFill } from "react-icons/go";
 import { GoDot } from "react-icons/go";
 
 
