@@ -21,7 +21,6 @@ const usersSlice = createSlice({
             })
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 let fetchedUsers = action.payload
-                console.log("fetched users = ", fetchedUsers)
                 state.users = fetchedUsers
                 state.loading = 'successful'
             })

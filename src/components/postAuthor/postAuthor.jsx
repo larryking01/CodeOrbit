@@ -1,7 +1,6 @@
 import './postAuthor.css'
 import { useSelector } from "react-redux"
 import { selectPostAuthor } from "../../store/features/users/users.selectors"
-import { useEffect } from "react"
 
 
 
@@ -16,13 +15,6 @@ const PostAuthor = ({ userId }) => {
 
 
     const author = useSelector(state => selectPostAuthor(state, userId ))
-
-
-    useEffect(() => {
-        console.log("user id = ", userId)
-        console.log("post author = ", author)
-    }, [author])
-
 
     let postAuthor = author ?
         <section className="user-profile">

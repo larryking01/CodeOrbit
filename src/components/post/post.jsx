@@ -43,13 +43,12 @@ const Post = ({ post }) => {
     // delete a post by its id
     const handleDeletePost = (post) => {
         try {
-            console.log("post id passed = ", post.id)
             dispatch(deletePost(post.id)).unwrap()
             navigate('/')
 
         }
         catch(error) {
-            console.log("delete post error in component ", error)
+            // handle error later
         }
     }
 

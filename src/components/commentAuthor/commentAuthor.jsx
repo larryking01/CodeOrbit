@@ -1,7 +1,6 @@
 import './commentAuthor.css'
 import { useSelector } from "react-redux"
 import { selectPostAuthor } from "../../store/features/users/users.selectors"
-import { useEffect } from "react"
 import { GoDotFill } from "react-icons/go";
 import { GoDot } from "react-icons/go";
 
@@ -16,13 +15,6 @@ const CommentAuthor = ({ userId }) => {
 
 
     const author = useSelector(state => selectPostAuthor(state, userId ))
-
-
-    useEffect(() => {
-        console.log("user id = ", userId)
-        console.log("post author = ", author)
-    }, [author])
-
 
     let commentAuthor = author ? 
         <section className="comment-owner">

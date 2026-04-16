@@ -37,13 +37,11 @@ const AddPost = () => {
             createdAt: new Date().toISOString()
         }
 
-        console.log("post payload = ", postPayload)
-
         try {
             dispatch(createPost( postPayload )).unwrap()
         }
         catch( error ) {
-            console.log("create post error in component ", error)
+            // handle error later
         }
     }
 
