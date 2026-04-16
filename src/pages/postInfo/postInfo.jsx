@@ -40,13 +40,11 @@ const PostInfo = () => {
             createdAt: new Date().toISOString()
         }
 
-        console.log("comment payload = ", commentPayload)
-
         try {
             dispatch(createComment(commentPayload)).unwrap()
         }
         catch(error) {
-            console.log("error in component while creating comment: ", error)
+            // handle error later
         }
 
     }

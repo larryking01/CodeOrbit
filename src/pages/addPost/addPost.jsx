@@ -1,7 +1,7 @@
 import './addPost.css'
 import { getRandomUser } from '../../helpers/getRandomUser'
 import { useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { createPost } from '../../store/features/posts/posts.thunks'
 import { nanoid } from 'nanoid'
 
@@ -37,13 +37,11 @@ const AddPost = () => {
             createdAt: new Date().toISOString()
         }
 
-        console.log("post payload = ", postPayload)
-
         try {
             dispatch(createPost( postPayload )).unwrap()
         }
         catch( error ) {
-            console.log("create post error in component ", error)
+            // handle error later
         }
     }
 
