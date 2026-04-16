@@ -1,4 +1,4 @@
-import './sidebar.css'
+import './sidebar.scss'
 import { Link } from 'react-router-dom';
 import { IoAddCircleOutline } from "react-icons/io5";
 import { IoMdTrendingUp } from "react-icons/io";

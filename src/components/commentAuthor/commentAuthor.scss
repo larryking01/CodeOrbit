@@ -1,0 +1,51 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+
+
+.comment-owner {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+
+
+    img {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+
+    .user-info {
+        align-self: center;
+    }
+
+
+    h3 {
+        color: $primary-text-col;
+        font-size: 1.2rem;
+    }
+
+
+    .post-author {
+        display: flex;
+        gap: 1rem;
+    }
+
+
+    .post-author p {
+        align-self: flex-end;
+        color: $secondary-text-col;
+        font-size: 1.1rem;
+    }
+
+
+    .dot-fill {
+        align-self: center;
+    }
+}
+
+

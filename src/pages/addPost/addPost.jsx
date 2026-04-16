@@ -1,9 +1,11 @@
-import './addPost.css'
+import './addPost.scss'
 import { getRandomUser } from '../../helpers/getRandomUser'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { createPost } from '../../store/features/posts/posts.thunks'
 import { nanoid } from 'nanoid'
+
+
 
 
 

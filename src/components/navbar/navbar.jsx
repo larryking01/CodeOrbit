@@ -1,4 +1,4 @@
-import './navbar.css'
+import './navbar.scss'
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { IoIosNotificationsOutline } from "react-icons/io";

@@ -1,0 +1,31 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+.user-profile {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+
+
+    img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-info {
+        align-self: center;
+    }
+
+
+    .post-author h3 {
+        color: $primary-text-col;
+    }
+}
+
+
+
+

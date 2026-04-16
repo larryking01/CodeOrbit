@@ -1,4 +1,4 @@
-import './comment.css'
+import './comment.scss'
 import { useSelector } from 'react-redux'
 import { selectCommentByPostId, selectNumberOfComments } from '../../store/features/comments/comments.selectors'
 import CommentAuthor from '../commentAuthor/commentAuthor'

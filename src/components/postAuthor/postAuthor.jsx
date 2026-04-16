@@ -1,4 +1,4 @@
-import './postAuthor.css'
+import './postAuthor.scss'
 import { useSelector } from "react-redux"
 import { selectPostAuthor } from "../../store/features/users/users.selectors"
 

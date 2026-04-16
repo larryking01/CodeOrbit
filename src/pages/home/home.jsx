@@ -1,4 +1,4 @@
-import './home.css'
+import './home.scss'
 import { useSelector } from "react-redux"
 import { selectAllPosts, selectNumberOfPosts } from "../../store/features/posts/posts.selectors"
 import Post from '../../components/post/post'

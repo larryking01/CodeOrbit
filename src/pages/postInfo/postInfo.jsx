@@ -1,4 +1,4 @@
-import './postInfo.css'
+import './postInfo.scss'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
