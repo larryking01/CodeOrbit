@@ -1,4 +1,4 @@
-import './layout.css'
+import styles from './layout.module.scss'
 import { Outlet } from "react-router-dom"
 
 import Navbar from "../navbar/navbar"
@@ -15,12 +15,12 @@ const Layout = () => {
 
     
     return (
-        <main className="layout">
+        <main className={ styles.layout }>
             <Sidebar />
 
-            <section className='content'>
+            <section className={ styles.layout__content}>
                 <Navbar />
-                <div className="outlet-content">
+                <div className={ styles['layout__outlet-content']}>
                     <Outlet />
                 </div>
             </section>

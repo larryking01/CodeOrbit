@@ -1,4 +1,4 @@
-import './home.css'
+import styles from './home.module.scss'
 import { useSelector } from "react-redux"
 import { selectAllPosts, selectNumberOfPosts } from "../../store/features/posts/posts.selectors"
 import Post from '../../components/post/post'
@@ -25,11 +25,11 @@ const Home = () => {
 
     return (
         <main>
-            <section className="home">
-                <h3 className="header-text">All your hot posts in one place...</h3>
-                <p className="post-count">Showing { postsCount } posts</p>
+            <section className={ styles.home }>
+                <h3 className={ styles['home__header-text']}>All your hot posts in one place...</h3>
+                <p className={ styles['home__posts-count']}>Showing { postsCount } posts</p>
 
-                <div className="posts-grid">
+                <div className={ styles['home__posts-grid']}>
                     { renderedPosts }
                 </div>
             </section>

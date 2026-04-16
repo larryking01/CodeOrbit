@@ -1,4 +1,4 @@
-import './postInfo.css'
+import styles from './postInfo.module.scss'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
@@ -50,36 +50,43 @@ const PostInfo = () => {
     }
 
 
+    let renderedPost = post ? 
+        <article className={styles.postInfo}>
+            <Post post={post} />
 
+            <section className={styles.postInfo__comments}>
+                <div className={styles.postInfo__addCommentContainer}>
+                    <form onSubmit={postComment}>
+                        <textarea
+                            rows={4}
+                            className={styles.postInfo__addCommentInput}
+                            placeholder="Add a comment"
+                            value={content}
+                            onChange={handleContentChange}
+                        ></textarea>
 
-    let renderedPost = post ?
-        <article className="post-info">
-            <Post post={ post } />
-
-            <section className="post-comments">
-                <div className='add-comment-container'>
-                    <form onSubmit={ postComment }>
-                        <textarea rows={ 4 } className='add-comment-input' placeholder='Add a comment' value={ content } onChange={ handleContentChange }></textarea>
-                        <button type='submit'>Post comment</button>
+                        <button type="submit" className={styles.postInfo__button}>
+                            Post comment
+                        </button>
                     </form>
                 </div>
 
-                <Comment postId={ postId } />
+                <Comment postId={postId} />
             </section>
-
         </article>
-        :
-        <section className="no-post">
+        : 
+        <article className={styles.postInfo__noPost}>
             <p>Sorry, we could not find the post you were looking for...</p>
-        </section>
-
-
+        </article>
+    
 
     return (
-        <main className="post-info-container">
-            { renderedPost }
-        </main>
+    <main className={styles.postInfoContainer}>
+        {renderedPost}
+    </main>
     )
+
+
 }
 
 

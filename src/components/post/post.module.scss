@@ -1,0 +1,65 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+
+
+/* using BEM style */
+.postCard {
+  background-color: $bg-light-grey;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Elements */
+.postCard__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCard__readMore {
+  cursor: pointer;
+  color: $purple-col;
+  font-weight: bold;
+}
+
+.postCard__details {}
+
+.postCard__title {
+  margin-bottom: 0.5rem;
+  color: $primary-text-col;
+}
+
+.postCard__content {
+  margin-bottom: 2rem;
+}
+
+.postCard__metadata {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCard__iconContainer {
+  width: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCard__iconWrapper {
+  cursor: pointer;
+}
+
+.postCard__iconCount {
+  align-self: flex-start;
+}
+
+.postCard__dateContainer {
+  display: flex;
+  gap: 1rem;
+  width: 14rem;
+  color: $secondary-text-col;
+}

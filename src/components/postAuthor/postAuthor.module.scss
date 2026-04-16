@@ -1,24 +1,28 @@
-.user-profile {
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+.userProfile {
     display: flex;
     justify-content: flex-start;
     gap: 1.5rem;
     margin-bottom: 1rem;
 }
 
-
-.user-profile img {
+.userProfile__img {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     object-fit: cover;
 }
 
-
-.user-profile .user-info {
+.userProfile__user-info {
     align-self: center;
 }
 
 
-.post-author h3 {
-    color: var(--primary-text-col)
+.userProfile__post-author h3 {
+    color: $primary-text-col;
 }
+
+

@@ -1,0 +1,49 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+
+
+.postInfoContainer {
+  padding: 2rem 4rem;
+}
+
+.postInfo {}
+
+/* Elements */
+.postInfo__comments {
+  margin-top: 3rem;
+}
+
+.postInfo__addCommentContainer {
+  margin-bottom: 2rem;
+}
+
+.postInfo__addCommentInput {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.625rem;
+  border: 1px solid $secondary-text-col;
+}
+
+.postInfo__button {
+  border: none;
+  border-radius: 0.625rem;
+  width: 8rem;
+  height: 3rem;
+  cursor: pointer;
+  background-color: $purple-col;
+  color: $white-col;
+  transition: background 0.3s ease;
+}
+
+.postInfo__button:hover {
+  background-color: $blue-col;
+}
+
+.postInfo__divider {
+  margin: 1rem 0;
+}
+
+.postInfo__noPost {}
