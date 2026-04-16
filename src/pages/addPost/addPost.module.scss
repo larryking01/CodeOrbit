@@ -1,0 +1,64 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+
+/* using BEM style */
+.addPost {
+
+}
+
+.addPost__header {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.addPost__subtitle {
+    margin-bottom: 3rem;
+}
+
+.addPost__label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.addPost__form {
+    width: 30rem;
+}
+
+.addPost__input {
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.625rem;
+    border: 1px solid $secondary-text-col;
+    padding: 1rem;
+}
+
+.addPost__textarea {
+    width: 100%;
+    border-radius: 0.625rem;
+    border: 1px solid $secondary-text-col;
+    padding: 1rem;
+}
+
+.addPost__input-container {
+    margin-bottom: 2rem;
+}
+
+.addPost__button {
+    border: none;
+    border-radius: 0.625rem;
+    width: 8rem;
+    height: 3rem;
+    cursor: pointer;
+    background-color: $purple-col;
+    color: $white-col;
+    transition: background 0.3s ease;
+}
+
+.addPost__button:hover {
+    background-color: $blue-col;
+}
+
+
+

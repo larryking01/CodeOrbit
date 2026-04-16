@@ -1,4 +1,4 @@
-import './addPost.scss'
+import styles from './addPost.module.scss'
 import { getRandomUser } from '../../helpers/getRandomUser'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
@@ -50,22 +50,22 @@ const AddPost = () => {
 
 
     return (
-        <main className='add-post'>
-            <h3 className='header'>What's on your mind?</h3>
-            <p className='header-description'>Craft your next social post effortlessly</p>
+        <main className={ styles.addPost }>
+            <h3 className={ styles.addPost__header }>What's on your mind?</h3>
+            <p className={ styles.addPost__subtitle }>Craft your next social post effortlessly</p>
 
-            <form onSubmit={ submitPost }>
-                <div className='input-container'>
-                    <label for='post-title'>Title</label>
-                    <input type='text' name='post-title' className='post-title' value={ title } onChange={ handleTitleChange } />
+            <form onSubmit={ submitPost } className={ styles.addPost__form }>
+                <div className={ styles['addPost__input-container'] }>
+                    <label for='post-title' className={ styles.addPost__label }>Title</label>
+                    <input type='text' name='post-title' className={ styles.addPost__input } value={ title } onChange={ handleTitleChange } />
                 </div>
 
-                <div className='input-container'>
-                    <label for='post-content'>Content</label>
-                    <textarea rows={ 8 } name='post-content' className='post-content' value={ content } onChange={ handleContentChange }></textarea>
+                <div className={ styles['addPost__input-container'] }>
+                    <label for='post-content' className={ styles.addPost__label }>Content</label>
+                    <textarea rows={ 8 } name='post-content' className={ styles.addPost__textarea } value={ content } onChange={ handleContentChange }></textarea>
                 </div>
 
-                <button type='submit'>Create</button>
+                <button type='submit' className={ styles.addPost__button }>Create</button>
             </form>
         </main>
     )

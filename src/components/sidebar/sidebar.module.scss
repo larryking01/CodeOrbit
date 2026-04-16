@@ -1,0 +1,51 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+
+
+.sidebar {
+  background-color: $purple-col;
+  width: 15rem;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Elements */
+.sidebar__brand {
+  margin-bottom: 3rem;
+}
+
+.sidebar__brandTitle {
+  color: $white-col;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+.sidebar__navigation {}
+
+.sidebar__navItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3rem;
+  color: $white-col;
+  cursor: pointer;
+  border-radius: 0.625rem;
+  padding: 0.3rem;
+  transition: background 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar__navItem:hover {
+  background-color: $blue-col;
+}
+
+.sidebar__navTitle {
+  font-size: 1.1rem;
+}
+
+
+
+

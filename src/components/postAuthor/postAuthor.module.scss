@@ -1,0 +1,28 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+.userProfile {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.userProfile__img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userProfile__user-info {
+    align-self: center;
+}
+
+
+.userProfile__post-author h3 {
+    color: $primary-text-col;
+}
+
+
