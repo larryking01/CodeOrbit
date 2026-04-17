@@ -39,12 +39,17 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 
 
 
-export const createPost = createAsyncThunk('posts/createPost', async (postPayload) => {
+export const createPost = createAsyncThunk('posts/createPost', async (postPayload, thunkApi) => {
     let endpoint = `${ api_url }/posts` 
     let controller = new AbortController()
     setTimeout(() => {
         controller.abort()
     }, 5000)
+
+
+    if(postPayload.title === 'fail') {
+        return thunkApi.rejectWithValue("Simulated server error....")
+    }
 
     try {
         let response = await fetch(endpoint, {

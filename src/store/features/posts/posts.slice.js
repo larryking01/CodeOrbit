@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { fetchPosts, createPost, deletePost } from "./posts.thunks";
 
 
@@ -11,44 +11,62 @@ import { fetchPosts, createPost, deletePost } from "./posts.thunks";
 const postsSlice = createSlice({
     name: 'posts',
     initialState: {
-        loading: 'idle', // loading | successful | failed
+        loading: 'idle',    // loading | successful | failed
         errors: null,
-        posts: []
+        posts: [],
+        temporaryPostsStore: {}
     },
     reducers: {
+        addNewPost(state, action) {
+            let post = action.payload 
+            state.temporaryPostsStore[post.id] = post
+            state.posts.push(post)
+        }
     },
     extraReducers: (builder) => {
         builder
             .addCase(fetchPosts.pending, (state) => {
                 state.loading = 'loading'
             })
+
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 let fetchedPosts = action.payload
                 state.posts = fetchedPosts
                 state.loading = 'successful'
             })
+
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.errors = action.error 
                 state.loading = 'failed'
             })
+
             .addCase(createPost.fulfilled, (state, action) => {
-                state.posts.push(action.payload)
-                state.errors = null
+                const createdPost = action.payload
+                delete state.temporaryPostsStore[createdPost.id]
             })
+
             .addCase(createPost.rejected, (state, action) => {
-                state.errors = action.error
+                console.log("handle create post failure: ", action.payload)
+                let createdPost = action.payload
+                let filteredPosts = state.posts.filter( post => post.id !== createdPost.id )
+                state.posts = filteredPosts
+
+                delete state.temporaryPostsStore[createdPost.id]
             })
+
             .addCase(deletePost.fulfilled, (state, action) => {
                 state.errors = null
                 let postId = action.payload
                 let filteredPosts = state.posts.filter(post => post.id !== postId)
                 state.posts = filteredPosts
             })
+
             .addCase(deletePost.rejected, (state, action) => {
                 state.errors = action.error
             })
     }
 })
+
 
 
 

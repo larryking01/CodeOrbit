@@ -1,9 +1,14 @@
 import styles from './addPost.module.scss'
-import { getRandomUser } from '../../helpers/getRandomUser'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { createPost } from '../../store/features/posts/posts.thunks'
 import { nanoid } from 'nanoid'
+import { useNavigate } from 'react-router-dom'
+
+import { addNewPost } from '../../store/features/posts/posts.slice'
+import { createPost } from '../../store/features/posts/posts.thunks'
+import { getRandomUser } from '../../helpers/getRandomUser'
+
+
 
 
 
@@ -14,23 +19,27 @@ import { nanoid } from 'nanoid'
 
 const AddPost = () => {
 
-    const dispatch = useDispatch()
-
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
 
     const handleTitleChange = (event) => {
         setTitle( event.target.value )
     }
 
+
     const handleContentChange = (event) => {
         setContent( event.target.value )
     }
 
-    const submitPost = (event ) => {
+
+    const submitPost = async (event) => {
         event.preventDefault()
         let postPayload = {
-            id: nanoid(5),
+            id: nanoid(5),    
             title,
             content,
             userId: getRandomUser().id,
@@ -40,10 +49,14 @@ const AddPost = () => {
         }
 
         try {
-            dispatch(createPost( postPayload )).unwrap()
+            dispatch(addNewPost(postPayload))
+            await dispatch(createPost( postPayload )).unwrap()
+            navigate('/')       
         }
         catch( error ) {
-            // handle error later
+            // alert(error.message)
+            console.log("create new post rejected")
+            navigate('/')       
         }
     }
 
