@@ -5,8 +5,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 let api_url = 'http://localhost:8000'
 
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkApi) => {
     let endpoint = `${ api_url }/posts` 
+
+    // initialize abort controller to force fetch operation to terminate after 5 seconds.
     let controller = new AbortController()
 
     let timeoutId = setTimeout(() => {
@@ -16,7 +18,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     clearTimeout( timeoutId )
 
     try {
-        let data
         let response = await fetch(endpoint, {
             method: 'GET',
             signal: controller.signal,
@@ -26,15 +27,16 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
         })
         
         if(!response.ok) {
-            throw new Error("An error occurred, failed to fetch posts...")
+            return thunkApi.rejectWithValue("Sorry, we could not load posts right now. Please try again later.")
         }
         else {
+            let data
             data = await response.json()
             return data
         }
     }
     catch(error) {
-        return error
+        return thunkApi.rejectWithValue("Sorry, we ran into an error while loading posts. Please try again later.")
     }
 
 })

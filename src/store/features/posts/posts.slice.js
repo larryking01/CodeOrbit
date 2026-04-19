@@ -12,7 +12,7 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         loading: 'idle',    // loading | successful | failed
-        errors: null,
+        error: null,
         posts: [],
         temporaryPostsStore: {}
     },
@@ -36,7 +36,7 @@ const postsSlice = createSlice({
             })
 
             .addCase(fetchPosts.rejected, (state, action) => {
-                state.errors = action.error 
+                state.error = action.payload
                 state.loading = 'failed'
             })
 
@@ -61,7 +61,7 @@ const postsSlice = createSlice({
             })
 
             .addCase(deletePost.rejected, (state, action) => {
-                state.errors = action.error
+                state.error = action.error
             })
     }
 })
