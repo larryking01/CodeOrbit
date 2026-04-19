@@ -46,7 +46,6 @@ const postsSlice = createSlice({
             })
 
             .addCase(createPost.rejected, (state, action) => {
-                console.log("create post failed, rollback triggered: ", action.error)
                 let failedPost = action.meta.arg
                 let filteredPosts = state.posts.filter( post => post.id !== failedPost.id )
                 state.posts = filteredPosts
