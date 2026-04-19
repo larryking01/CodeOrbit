@@ -46,12 +46,12 @@ const postsSlice = createSlice({
             })
 
             .addCase(createPost.rejected, (state, action) => {
-                console.log("handle create post failure: ", action.payload)
-                let createdPost = action.payload
-                let filteredPosts = state.posts.filter( post => post.id !== createdPost.id )
+                console.log("create post failed, rollback triggered: ", action.error)
+                let failedPost = action.meta.arg
+                let filteredPosts = state.posts.filter( post => post.id !== failedPost.id )
                 state.posts = filteredPosts
 
-                delete state.temporaryPostsStore[createdPost.id]
+                delete state.temporaryPostsStore[failedPost.id]
             })
 
             .addCase(deletePost.fulfilled, (state, action) => {

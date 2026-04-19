@@ -47,11 +47,13 @@ export const createPost = createAsyncThunk('posts/createPost', async (postPayloa
     }, 5000)
 
 
-    if(postPayload.title === 'fail') {
-        return thunkApi.rejectWithValue("Simulated server error....")
-    }
-
+    
     try {
+        if(postPayload.title === 'fail') {
+            // return thunkApi.rejectWithValue("Simulated server error....")
+            throw new Error("Something went wrong")
+        }
+
         let response = await fetch(endpoint, {
             method: 'POST',
             body: JSON.stringify(postPayload),
@@ -65,6 +67,7 @@ export const createPost = createAsyncThunk('posts/createPost', async (postPayloa
         return data
     }
     catch( error ) {
+        console.log("caught error: ", error)
         return error
     }
 
