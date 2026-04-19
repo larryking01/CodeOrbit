@@ -17,7 +17,6 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async (_, thunkAp
         controller.abort()
     }, 5000)
 
-    clearTimeout( timeoutId )
 
     try {
         let response = await fetch(endpoint, {
@@ -43,6 +42,9 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async (_, thunkAp
         else {
             return thunkApi.rejectWithValue("Sorry, we ran into an error while loading users. Please try again later.")
         }
+    }
+    finally {
+        clearTimeout( timeoutId )
     }
 
 })

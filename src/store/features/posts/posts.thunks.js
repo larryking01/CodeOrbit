@@ -15,7 +15,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
         controller.abort()
     }, 5000)
 
-    clearTimeout( timeoutId )
 
     try {
         let response = await fetch(endpoint, {
@@ -42,6 +41,9 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
             return thunkApi.rejectWithValue("Sorry, we ran into an error while loading posts. Please try again later.")
         }
     }
+    finally {
+        clearTimeout( timeoutId )
+    }
 
 })
 
@@ -56,8 +58,6 @@ export const createPost = createAsyncThunk('posts/createPost', async (post, thun
     let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)
-
-    clearTimeout( timeoutId )
 
 
     try {
@@ -86,6 +86,9 @@ export const createPost = createAsyncThunk('posts/createPost', async (post, thun
             return thunkApi.rejectWithValue("Sorry, we ran into an error while creating your post. Please try again later.")
         }
     }
+    finally {
+        clearTimeout( timeoutId )
+    }
 
 })
 
@@ -100,8 +103,6 @@ export const deletePostAsync = createAsyncThunk('posts/deletePost', async (post,
     let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)
-
-    clearTimeout( timeoutId )
 
 
     try {
@@ -126,5 +127,8 @@ export const deletePostAsync = createAsyncThunk('posts/deletePost', async (post,
             console.log("async delete post error caught")
             return thunkApi.rejectWithValue("We ran into an error when deleting the post. Please try again later.")
         }
+    }
+    finally {
+        clearTimeout( timeoutId )
     }
 })

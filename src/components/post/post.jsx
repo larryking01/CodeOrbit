@@ -41,21 +41,21 @@ const Post = ({ post }) => {
 
 
 
-    // delete a post by its id
-    const handleDeletePost = async (post) => {
-        try {
-            dispatch(deletePost(post))
+        // delete a post by its id
+        const handleDeletePost = async (post) => {
+            try {
+                dispatch(deletePost(post))
 
-            await dispatch(deletePostAsync(post)).unwrap()
+                await dispatch(deletePostAsync(post)).unwrap()
 
-            navigate('/')
+                navigate('/')
 
+            }
+            catch(error) {
+                // handle error later
+                navigate('/')        
+            }
         }
-        catch(error) {
-            // handle error later
-            navigate('/')        
-        }
-    }
 
     
 
