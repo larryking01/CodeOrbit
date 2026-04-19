@@ -30,8 +30,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
             throw new Error("Sorry, we could not load posts right now. Please try again later.")
         }
         else {
-            let data
-            data = await response.json()
+            let data = await response.json()
             return data
         }
     }
@@ -75,8 +74,7 @@ export const createPost = createAsyncThunk('posts/createPost', async (post, thun
             throw new Error("Sorry, we could not create your post right now. Please try again later.")
         }
         else {
-            let data
-            data = await response.json()
+            let data = await response.json()
             return data
         }
     }
