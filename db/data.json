@@ -249,15 +249,6 @@
       "createdAt": "2026-03-21T08:40:00Z"
     },
     {
-      "id": "12",
-      "title": "Rate limiting is one of those must-have backend features",
-      "content": "Added basic request throttling to a side project API. It’s one of those features you don’t think about until you really need it.",
-      "userId": 102,
-      "like_count": 19,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T09:25:00Z"
-    },
-    {
       "id": "13",
       "title": "Component composition over giant components",
       "content": "Split one oversized page into smaller reusable pieces today and immediately felt less stressed. Cleaner code, easier testing.",
@@ -312,13 +303,13 @@
       "createdAt": "2026-03-21T15:35:00Z"
     },
     {
-      "id": "vduymf4gJMI",
-      "title": "Redux Toolkit Query's Invalidates Tag",
-      "content": "invalidates tags",
-      "userId": 104,
+      "id": "uhk8zhECYGo",
+      "title": "failx",
+      "content": "cvzbbv",
+      "userId": 103,
       "like_count": 0,
       "isBookmarked": false,
-      "createdAt": "2026-04-16T11:07:27.290Z"
+      "createdAt": "2026-04-18T23:14:47.075Z"
     }
   ],
   "comments": [
@@ -650,6 +641,20 @@
       "postId": "8",
       "userId": 104,
       "createdAt": "2026-04-16T17:42:21.443Z"
+    },
+    {
+      "id": "NfqLxU3Dne4",
+      "content": "",
+      "postId": null,
+      "userId": 103,
+      "createdAt": "2026-04-17T16:08:17.733Z"
+    },
+    {
+      "id": "jzE9PzbcFEw",
+      "content": "",
+      "postId": null,
+      "userId": 101,
+      "createdAt": "2026-04-17T16:08:20.388Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

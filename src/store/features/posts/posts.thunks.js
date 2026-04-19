@@ -9,9 +9,11 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     let endpoint = `${ api_url }/posts` 
     let controller = new AbortController()
 
-    setTimeout(() => {
+    let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)
+
+    clearTimeout( timeoutId )
 
     try {
         let data
@@ -39,13 +41,20 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 
 
 
-export const createPost = createAsyncThunk('posts/createPost', async (postPayload) => {
+export const createPost = createAsyncThunk('posts/createPost', async (postPayload, thunkApi) => {
     let endpoint = `${ api_url }/posts` 
+
     let controller = new AbortController()
-    setTimeout(() => {
+
+    let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)
 
+    clearTimeout( timeoutId )
+
+
+
+    
     try {
         let response = await fetch(endpoint, {
             method: 'POST',
@@ -60,7 +69,8 @@ export const createPost = createAsyncThunk('posts/createPost', async (postPayloa
         return data
     }
     catch( error ) {
-        return error
+        console.log("caught error: ", error)
+        return thunkApi.rejectWithValue("Simulated server error")
     }
 
 })
@@ -71,6 +81,7 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (postId, th
     let endpoint = `${ api_url }/posts/${ postId }` 
 
     let controller = new AbortController()
+
     let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)

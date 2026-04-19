@@ -9,11 +9,11 @@ import Post from '../../components/post/post'
 
 
 
+
 const Home = () => {
 
     const posts = useSelector( selectAllPosts )
     const postsCount = useSelector( selectNumberOfPosts )
-
 
     const renderedPosts = posts.map( post => (
         <Post post={ post } key={ post.id }/>
