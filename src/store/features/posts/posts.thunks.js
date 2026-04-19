@@ -43,9 +43,10 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
 
 
 
-export const createPost = createAsyncThunk('posts/createPost', async (postPayload, thunkApi) => {
+export const createPost = createAsyncThunk('posts/createPost', async (post, thunkApi) => {
     let endpoint = `${ api_url }/posts` 
 
+    // initialize abort controller to force fetch operation to terminate after 5 seconds.
     let controller = new AbortController()
 
     let timeoutId = setTimeout(() => {
@@ -55,24 +56,27 @@ export const createPost = createAsyncThunk('posts/createPost', async (postPayloa
     clearTimeout( timeoutId )
 
 
-
-    
     try {
         let response = await fetch(endpoint, {
             method: 'POST',
-            body: JSON.stringify(postPayload),
+            body: JSON.stringify(post),
             signal: controller.signal,
             headers: {
                 'Content-Type': 'application/json'         
             }
         })
 
-        let data = await response.json()
-        return data
+        if(!response.ok) {
+            return thunkApi.rejectWithValue("Sorry, we could not create your post right now. Please try again later.")
+        }
+        else {
+            let data
+            data = await response.json()
+            return data
+        }
     }
     catch( error ) {
-        console.log("caught error: ", error)
-        return thunkApi.rejectWithValue("Simulated server error")
+        return thunkApi.rejectWithValue("Sorry, we ran into an error while creating your post. Please try again later.")
     }
 
 })

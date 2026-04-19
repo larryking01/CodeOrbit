@@ -49,8 +49,8 @@ const postsSlice = createSlice({
                 let failedPost = action.meta.arg
                 let filteredPosts = state.posts.filter( post => post.id !== failedPost.id )
                 state.posts = filteredPosts
-
                 delete state.temporaryPostsStore[failedPost.id]
+                state.error = action.payload
             })
 
             .addCase(deletePost.fulfilled, (state, action) => {
