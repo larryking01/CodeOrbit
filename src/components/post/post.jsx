@@ -10,7 +10,8 @@ import { MdDelete } from "react-icons/md";
 
 
 import PostAuthor from '../postAuthor/postAuthor';
-import { deletePost } from '../../store/features/posts/posts.thunks';
+import { deletePostAsync } from '../../store/features/posts/posts.thunks';
+import { deletePost } from '../../store/features/posts/posts.slice';
 
 
 
@@ -41,14 +42,18 @@ const Post = ({ post }) => {
 
 
     // delete a post by its id
-    const handleDeletePost = (post) => {
+    const handleDeletePost = async (post) => {
         try {
-            dispatch(deletePost(post.id)).unwrap()
+            dispatch(deletePost(post))
+
+            await dispatch(deletePostAsync(post)).unwrap()
+
             navigate('/')
 
         }
         catch(error) {
             // handle error later
+            navigate('/')        
         }
     }
 
