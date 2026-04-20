@@ -1,5 +1,5 @@
-import { createSlice, current } from "@reduxjs/toolkit";
-import { fetchPosts, createPost, deletePost } from "./posts.thunks";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchPosts, createPost, deletePostAsync } from "./posts.thunks";
 
 
 
@@ -21,6 +21,13 @@ const postsSlice = createSlice({
             let post = action.payload 
             state.temporaryPostsStore[post.id] = post
             state.posts.push(post)
+        },
+        deletePost(state, action) {
+            let postToDelete = action.payload 
+            state.temporaryPostsStore[postToDelete.id] = postToDelete
+            let filteredPosts = state.posts.filter( post => post.id !== postToDelete.id )
+            state.posts = filteredPosts
+            state.error = null
         }
     },
     extraReducers: (builder) => {
@@ -53,15 +60,17 @@ const postsSlice = createSlice({
                 state.error = action.payload
             })
 
-            .addCase(deletePost.fulfilled, (state, action) => {
-                state.errors = null
-                let postId = action.payload
-                let filteredPosts = state.posts.filter(post => post.id !== postId)
-                state.posts = filteredPosts
+            .addCase(deletePostAsync.fulfilled, (state, action) => {
+                let deletedPost = action.meta.arg
+                delete state.temporaryPostsStore[deletedPost.id]
+                state.error = null
             })
 
-            .addCase(deletePost.rejected, (state, action) => {
-                state.error = action.error
+            .addCase(deletePostAsync.rejected, (state, action) => {
+                let deletedPost = action.meta.arg 
+                state.posts.push(deletedPost)
+                delete state.temporaryPostsStore[deletedPost.id]
+                state.error = action.payload
             })
     }
 })
@@ -71,6 +80,6 @@ const postsSlice = createSlice({
 
 
 // export actions and reducer 
-export const { addNewPost, updatePost } = postsSlice.actions
+export const { addNewPost, deletePost } = postsSlice.actions
 
 export default postsSlice.reducer

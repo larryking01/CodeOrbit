@@ -15,7 +15,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
         controller.abort()
     }, 5000)
 
-    clearTimeout( timeoutId )
 
     try {
         let response = await fetch(endpoint, {
@@ -42,6 +41,9 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
             return thunkApi.rejectWithValue("Sorry, we ran into an error while loading posts. Please try again later.")
         }
     }
+    finally {
+        clearTimeout( timeoutId )
+    }
 
 })
 
@@ -56,8 +58,6 @@ export const createPost = createAsyncThunk('posts/createPost', async (post, thun
     let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)
-
-    clearTimeout( timeoutId )
 
 
     try {
@@ -86,13 +86,16 @@ export const createPost = createAsyncThunk('posts/createPost', async (post, thun
             return thunkApi.rejectWithValue("Sorry, we ran into an error while creating your post. Please try again later.")
         }
     }
+    finally {
+        clearTimeout( timeoutId )
+    }
 
 })
 
 
 
-export const deletePost = createAsyncThunk('posts/deletePost', async (postId, thunkApi) => {
-    let endpoint = `${ api_url }/posts/${ postId }` 
+export const deletePostAsync = createAsyncThunk('posts/deletePost', async (post, thunkApi) => {
+    let endpoint = `${ api_url }/posts/${ post.id }` 
 
     // initialize abort controller to force fetch operation to terminate after 5 seconds.
     let controller = new AbortController()
@@ -100,8 +103,6 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (postId, th
     let timeoutId = setTimeout(() => {
         controller.abort()
     }, 5000)
-
-    clearTimeout( timeoutId )
 
 
     try {
@@ -114,19 +115,18 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (postId, th
         })
 
         if(!response.ok) {
-            throw new Error("We could not delete the post right now. Please try again later.")
+            throw new Error("Sorry, we could not delete your post right now. Please try again later.")
         }
-        else {
-            return postId
-        }
-
     }
     catch( error ) {
         if(error.name === 'AbortError') {
-            thunkApi.rejectWithValue("Sorry, the request timed out. Check your network connection and try again.")
+            return thunkApi.rejectWithValue("Sorry, the request timed out. Check your network connection and try again.")
         }
         else {
-            thunkApi.rejectWithValue("We ran into an error when deleting the post. Please try again later.")
+            return thunkApi.rejectWithValue("We ran into an error when deleting the post. Please try again later.")
         }
+    }
+    finally {
+        clearTimeout( timeoutId )
     }
 })

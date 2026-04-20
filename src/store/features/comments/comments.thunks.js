@@ -18,7 +18,6 @@ export const fetchComments = createAsyncThunk('comments/fetchComments', async (_
         controller.abort()
     }, 5000)
 
-    clearTimeout(timeoutId)
 
     try {
         let response = await fetch(`${ api_url }/comments`, {
@@ -46,6 +45,9 @@ export const fetchComments = createAsyncThunk('comments/fetchComments', async (_
             return thunkApi.rejectWithValue("Sorry, we ran into an error while loading comments. Please try again later.")
         }
     }
+    finally {
+        clearTimeout( timeoutId )
+    }
 })
 
 
@@ -59,7 +61,6 @@ export const createComment = createAsyncThunk('comments/createComment', async (c
         controller.abort()
     }, 5000)
 
-    clearTimeout( timeoutId )
 
     try{
         let response = await fetch(`${ api_url }/comments`, {
@@ -87,5 +88,8 @@ export const createComment = createAsyncThunk('comments/createComment', async (c
         else {
             return thunkApi.rejectWithValue("Sorry, we ran into an error while adding your comment. Please try again later.")
         }
+    }
+    finally {
+        clearTimeout( timeoutId )
     }
 })

@@ -54,8 +54,7 @@ const AddPost = () => {
             navigate('/')       
         }
         catch( error ) {
-            // alert(error.message)
-            console.log("create new post rejected")
+            alert(error.message)
             navigate('/')       
         }
     }
