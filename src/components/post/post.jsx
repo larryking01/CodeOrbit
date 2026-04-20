@@ -85,30 +85,30 @@ const Post = ({ post }) => {
 
         <section className={styles.postCard__metadata}>
             <div className={styles.postCard__iconContainer}>
-            <p className={styles.postCard__iconWrapper}>
-                <AiOutlineLike size={22} />
-            </p>
-            <p className={styles.postCard__iconCount}>{post.like_count}</p>
+                <p className={styles.postCard__iconWrapper}>
+                    <AiOutlineLike size={22} />
+                </p>
+                <p className={styles.postCard__iconCount}>{post.reactions.numberOfLikes}</p>
             </div>
 
             <div className={styles.postCard__iconContainer}>
-            <p className={styles.postCard__iconWrapper}>
-                <FaRegBookmark size={20} />
-            </p>
-            <p className={styles.postCard__iconCount}>{post.like_count}</p>
+                <p className={styles.postCard__iconWrapper}>
+                    <FaRegBookmark size={20} />
+                </p>
+                <p className={styles.postCard__iconCount}>{post.reactions.numberOfComments}</p>
             </div>
 
             <div className={styles.postCard__iconContainer}>
-            <p className={styles.postCard__iconWrapper}>
-                <FaRegCommentAlt size={20} />
-            </p>
-            <p className={styles.postCard__iconCount}>{post.like_count}</p>
+                <p className={styles.postCard__iconWrapper}>
+                    <FaRegCommentAlt size={20} />
+                </p>
+                <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
             </div>
 
             <div className={styles.postCard__dateContainer}>
-            <p className={styles.postCard__iconCount}>
-                Last Updated: {new Date().toISOString().split('T')[0]}
-            </p>
+                <p className={styles.postCard__iconCount}>
+                    Last Updated: {new Date().toISOString().split('T')[0]}
+                </p>
             </div>
         </section>
         </article>   

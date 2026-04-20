@@ -217,90 +217,130 @@
       "title": "SQL performance tuning is underrated",
       "content": "A couple of indexes and one query rewrite reduced response time significantly. Sometimes the best optimization is just better querying.",
       "userId": 108,
-      "like_count": 16,
-      "isBookmarked": true,
-      "createdAt": "2026-03-20T14:10:00Z"
+      "createdAt": "2026-03-20T14:10:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "9",
       "title": "Flutter animations can be addictive",
       "content": "I said I’d just add a simple transition and somehow ended up polishing micro-interactions for an hour. Worth it though.",
       "userId": 109,
-      "like_count": 38,
-      "isBookmarked": false,
-      "createdAt": "2026-03-20T15:00:00Z"
+      "createdAt": "2026-03-20T15:00:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "10",
       "title": "CI pipelines should fail loudly",
       "content": "Updated a GitHub Actions workflow today so failures are clearer and easier to diagnose. Good logs save real time.",
       "userId": 110,
-      "like_count": 14,
-      "isBookmarked": false,
-      "createdAt": "2026-03-20T16:25:00Z"
+      "createdAt": "2026-03-20T16:25:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "11",
       "title": "Thunks feel less scary now",
       "content": "Async logic looked messy at first, but once I understood pending, fulfilled, and rejected states, the pattern started to feel natural.",
       "userId": 101,
-      "like_count": 31,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T08:40:00Z"
+      "createdAt": "2026-03-21T08:40:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "13",
       "title": "Component composition over giant components",
       "content": "Split one oversized page into smaller reusable pieces today and immediately felt less stressed. Cleaner code, easier testing.",
       "userId": 103,
-      "like_count": 24,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T10:15:00Z"
+      "createdAt": "2026-03-21T10:15:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "14",
       "title": "Spacing can make or break a UI",
       "content": "No new features today, just tightened layout spacing and typography rhythm. The interface instantly looked more professional.",
       "userId": 104,
-      "like_count": 45,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T11:05:00Z"
+      "createdAt": "2026-03-21T11:05:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "15",
       "title": "Why I still like REST for learning",
       "content": "GraphQL is cool, but for practicing data fetching patterns and client state flow, a simple REST API keeps the learning signal really clear.",
       "userId": 105,
-      "like_count": 26,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T12:20:00Z"
+      "createdAt": "2026-03-21T12:20:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "16",
       "title": "Testing reducers gave me more confidence",
       "content": "Wrote a few reducer tests today and it made refactoring way less stressful. Fast feedback loops are underrated.",
       "userId": 106,
-      "like_count": 33,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T13:10:00Z"
+      "createdAt": "2026-03-21T13:10:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "17",
       "title": "Feature folders are winning me over",
       "content": "Grouping slices, selectors, components, and hooks by feature instead of file type is making the project feel much easier to navigate.",
       "userId": 107,
-      "like_count": 21,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T14:00:00Z"
+      "createdAt": "2026-03-21T14:00:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     },
     {
       "id": "19",
       "title": "State design matters more than I thought",
       "content": "A lot of bugs disappeared once I stopped stuffing everything into arrays and started being intentional about state shape.",
       "userId": 109,
-      "like_count": 36,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T15:35:00Z"
+      "createdAt": "2026-03-21T15:35:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": true
+      }
     }
   ],
   "comments": [
