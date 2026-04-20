@@ -23,7 +23,6 @@ const postsSlice = createSlice({
             state.posts.push(post)
         },
         deletePost(state, action) {
-            console.log("sync delete post fired")
             let postToDelete = action.payload 
             state.temporaryPostsStore[postToDelete.id] = postToDelete
             let filteredPosts = state.posts.filter( post => post.id !== postToDelete.id )
@@ -68,7 +67,6 @@ const postsSlice = createSlice({
             })
 
             .addCase(deletePostAsync.rejected, (state, action) => {
-                console.log("deleting post failed, rollback triggered: ", action.payload)
                 let deletedPost = action.meta.arg 
                 state.posts.push(deletedPost)
                 delete state.temporaryPostsStore[deletedPost.id]

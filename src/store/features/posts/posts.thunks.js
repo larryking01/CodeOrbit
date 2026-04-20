@@ -106,11 +106,6 @@ export const deletePostAsync = createAsyncThunk('posts/deletePost', async (post,
 
 
     try {
-        if(post.id === 'pzKFW9gbKCI') {
-            console.log("async delete post fired too")
-            throw new Error("We could not delete the post right now. Please try again later.")
-        }
-
         let response = await fetch(endpoint, {
             method: 'DELETE',
             headers: {
@@ -118,13 +113,16 @@ export const deletePostAsync = createAsyncThunk('posts/deletePost', async (post,
             },
             signal: controller.signal
         })
+
+        if(!response.ok) {
+            throw new Error("Sorry, we could not delete your post right now. Please try again later.")
+        }
     }
     catch( error ) {
         if(error.name === 'AbortError') {
             return thunkApi.rejectWithValue("Sorry, the request timed out. Check your network connection and try again.")
         }
         else {
-            console.log("async delete post error caught")
             return thunkApi.rejectWithValue("We ran into an error when deleting the post. Please try again later.")
         }
     }
