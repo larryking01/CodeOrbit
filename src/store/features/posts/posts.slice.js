@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchPosts, createPost, deletePostAsync } from "./posts.thunks";
-import { GrUpdate } from "react-icons/gr";
 
 
 

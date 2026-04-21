@@ -857,6 +857,41 @@
       "postId": "8",
       "userId": 104,
       "createdAt": "2026-04-21T14:23:46.382Z"
+    },
+    {
+      "id": "xMKiagI0jf0",
+      "content": "",
+      "postId": "19",
+      "userId": 108,
+      "createdAt": "2026-04-21T15:48:10.625Z"
+    },
+    {
+      "id": "cMaEG9eEceM",
+      "content": "",
+      "postId": "19",
+      "userId": 103,
+      "createdAt": "2026-04-21T15:49:12.887Z"
+    },
+    {
+      "id": "hcG4OVewBB8",
+      "content": "",
+      "postId": "19",
+      "userId": 105,
+      "createdAt": "2026-04-21T15:49:13.553Z"
+    },
+    {
+      "id": "Vqe1jFCUfzU",
+      "content": "",
+      "postId": "15",
+      "userId": 103,
+      "createdAt": "2026-04-21T15:49:30.656Z"
+    },
+    {
+      "id": "IncJ0IYPMpg",
+      "content": "",
+      "postId": "15",
+      "userId": 102,
+      "createdAt": "2026-04-21T15:49:31.292Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
