@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchPosts, createPost, deletePostAsync } from "./posts.thunks";
+import { GrUpdate } from "react-icons/gr";
 
 
 
@@ -28,6 +29,32 @@ const postsSlice = createSlice({
             let filteredPosts = state.posts.filter( post => post.id !== postToDelete.id )
             state.posts = filteredPosts
             state.error = null
+        },
+        updatePostLikes(state, action) {
+            let postId = action.payload 
+            let selectedPost = state.posts.find(post => post.id === postId)
+
+            if(!selectedPost.reactions.isLiked) {
+                selectedPost.reactions.numberOfLikes += 1
+                selectedPost.reactions.isLiked = true
+            }
+            else {
+                selectedPost.reactions.numberOfLikes -= 1
+                selectedPost.reactions.isLiked = false
+            }
+        },
+        updatePostBookmarks(state, action) {
+            let postId = action.payload 
+            let selectedPost = state.posts.find(post => post.id === postId)
+
+            if(!selectedPost.reactions.isBookmarked) {
+                selectedPost.reactions.numberOfBookmarks += 1
+                selectedPost.reactions.isBookmarked = true
+            }
+            else {
+                selectedPost.reactions.numberOfBookmarks -= 1
+                selectedPost.reactions.isBookmarked = false
+            }
         }
     },
     extraReducers: (builder) => {
@@ -92,6 +119,6 @@ const postsSlice = createSlice({
 
 
 // export actions and reducer 
-export const { addNewPost, deletePost } = postsSlice.actions
+export const { addNewPost, deletePost, updatePostLikes, updatePostBookmarks } = postsSlice.actions
 
 export default postsSlice.reducer

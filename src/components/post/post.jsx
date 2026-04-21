@@ -11,7 +11,7 @@ import { MdDelete } from "react-icons/md";
 
 import PostAuthor from '../postAuthor/postAuthor';
 import { deletePostAsync } from '../../store/features/posts/posts.thunks';
-import { deletePost } from '../../store/features/posts/posts.slice';
+import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
 
 
 
@@ -54,6 +54,32 @@ const Post = ({ post }) => {
         }
     }
 
+
+    // like or unlike a post
+    const handleLikeOrUnlikePost = async (postId) => {
+        try {
+            dispatch(updatePostLikes(postId))
+        }
+        catch(error) {
+            // handle error later 
+            console.log("error updating posts like feature: ", error)
+        }
+
+    }
+
+
+    // add or remove bookmark
+    const handleAddOrRemoveBookmark = async (postId) => {
+        try {
+            dispatch(updatePostBookmarks(postId))
+        }
+        catch(error) {
+            // handle error later 
+            console.log("error updating posts bookmark feature: ", error)
+        }
+
+    }
+
     
 
     return (
@@ -82,24 +108,24 @@ const Post = ({ post }) => {
 
             <section className={styles.postCard__metadata}>
                 <div className={styles.postCard__iconContainer}>
-                    <p className={styles.postCard__iconWrapper}>
+                    <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post.id)}>
                         <AiOutlineLike size={22} />
                     </p>
                     <p className={styles.postCard__iconCount}>{post.reactions.numberOfLikes}</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
-                    <p className={styles.postCard__iconWrapper}>
+                    <p className={styles.postCard__iconWrapper} onClick={() => handleAddOrRemoveBookmark(post.id)}>
                         <FaRegBookmark size={20} />
                     </p>
-                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfComments}</p>
+                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
                     <p className={styles.postCard__iconWrapper}>
                         <FaRegCommentAlt size={20} />
                     </p>
-                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
+                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfComments}</p>
                 </div>
 
                 <div className={styles.postCard__dateContainer}>
