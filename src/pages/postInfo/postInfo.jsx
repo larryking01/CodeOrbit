@@ -5,7 +5,8 @@ import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { selectPostById } from '../../store/features/posts/posts.selectors'
-import { createComment } from '../../store/features/comments/comments.thunks'
+import { createComment } from '../../store/features/comments/comments.slice'
+import { createCommentAsync } from '../../store/features/comments/comments.thunks'
 import Post from '../../components/post/post'
 import Comment from '../../components/comment/comment'
 import { getRandomUser } from '../../helpers/getRandomUser'
@@ -29,7 +30,7 @@ const PostInfo = () => {
     }
 
 
-    const postComment = (event) => {
+    const postComment = async (event) => {
         event.preventDefault()
 
         let commentPayload = {
@@ -41,10 +42,12 @@ const PostInfo = () => {
         }
 
         try {
-            dispatch(createComment(commentPayload)).unwrap()
+            dispatch(createComment(commentPayload))
+            await dispatch(createCommentAsync(commentPayload)).unwrap()
         }
         catch(error) {
             // handle error later
+            console.log("error adding new comment", error)
         }
 
     }

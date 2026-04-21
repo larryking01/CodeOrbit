@@ -47,9 +47,14 @@ const postsSlice = createSlice({
                 state.loading = 'failed'
             })
 
+            .addCase(createPost.pending, (state) => {
+                state.loading = 'loading'
+            })
+
             .addCase(createPost.fulfilled, (state, action) => {
                 const createdPost = action.payload
                 delete state.temporaryPostsStore[createdPost.id]
+                state.loading = 'successful'
             })
 
             .addCase(createPost.rejected, (state, action) => {
@@ -57,12 +62,18 @@ const postsSlice = createSlice({
                 let filteredPosts = state.posts.filter( post => post.id !== failedPost.id )
                 state.posts = filteredPosts
                 delete state.temporaryPostsStore[failedPost.id]
+                state.loading = 'failed'
                 state.error = action.payload
+            })
+
+            .addCase(deletePostAsync.pending, (state, action) => {
+                state.loading = 'loading'
             })
 
             .addCase(deletePostAsync.fulfilled, (state, action) => {
                 let deletedPost = action.meta.arg
                 delete state.temporaryPostsStore[deletedPost.id]
+                state.loading = 'successful'
                 state.error = null
             })
 
@@ -70,6 +81,7 @@ const postsSlice = createSlice({
                 let deletedPost = action.meta.arg 
                 state.posts.push(deletedPost)
                 delete state.temporaryPostsStore[deletedPost.id]
+                state.loading = 'failed'
                 state.error = action.payload
             })
     }

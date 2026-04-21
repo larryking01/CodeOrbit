@@ -19,7 +19,7 @@ const Comment = ({ postId }) => {
 
     let renderedComments = commentsCount > 0 ?
         comments.map( comment => (
-            <article className={styles['comment__comment-item']}>
+            <article className={styles['comment__comment-item']} key={ comment.id }>
                 <CommentAuthor userId={ comment.userId } />
                 <p>{ comment.content }</p>
             </article>

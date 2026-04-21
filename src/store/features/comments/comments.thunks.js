@@ -52,7 +52,7 @@ export const fetchComments = createAsyncThunk('comments/fetchComments', async (_
 
 
 
-export const createComment = createAsyncThunk('comments/createComment', async (comment, thunkApi) => {
+export const createCommentAsync = createAsyncThunk('comments/createComment', async (comment, thunkApi) => {
 
     // initialize abort controller to force fetch operation to terminate after 5 seconds.
     let controller = new AbortController()
@@ -63,6 +63,10 @@ export const createComment = createAsyncThunk('comments/createComment', async (c
 
 
     try{
+        if(comment.content === 'Testing') {
+            throw new Error("Forced comment creation failure")
+        }
+
         let response = await fetch(`${ api_url }/comments`, {
             method: 'POST',
             body: JSON.stringify( comment ),

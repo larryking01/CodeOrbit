@@ -217,90 +217,140 @@
       "title": "SQL performance tuning is underrated",
       "content": "A couple of indexes and one query rewrite reduced response time significantly. Sometimes the best optimization is just better querying.",
       "userId": 108,
-      "like_count": 16,
-      "isBookmarked": true,
-      "createdAt": "2026-03-20T14:10:00Z"
+      "createdAt": "2026-03-20T14:10:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "9",
       "title": "Flutter animations can be addictive",
       "content": "I said I’d just add a simple transition and somehow ended up polishing micro-interactions for an hour. Worth it though.",
       "userId": 109,
-      "like_count": 38,
-      "isBookmarked": false,
-      "createdAt": "2026-03-20T15:00:00Z"
+      "createdAt": "2026-03-20T15:00:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "10",
       "title": "CI pipelines should fail loudly",
       "content": "Updated a GitHub Actions workflow today so failures are clearer and easier to diagnose. Good logs save real time.",
       "userId": 110,
-      "like_count": 14,
-      "isBookmarked": false,
-      "createdAt": "2026-03-20T16:25:00Z"
+      "createdAt": "2026-03-20T16:25:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "11",
       "title": "Thunks feel less scary now",
       "content": "Async logic looked messy at first, but once I understood pending, fulfilled, and rejected states, the pattern started to feel natural.",
       "userId": 101,
-      "like_count": 31,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T08:40:00Z"
+      "createdAt": "2026-03-21T08:40:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "13",
       "title": "Component composition over giant components",
       "content": "Split one oversized page into smaller reusable pieces today and immediately felt less stressed. Cleaner code, easier testing.",
       "userId": 103,
-      "like_count": 24,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T10:15:00Z"
+      "createdAt": "2026-03-21T10:15:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "14",
       "title": "Spacing can make or break a UI",
       "content": "No new features today, just tightened layout spacing and typography rhythm. The interface instantly looked more professional.",
       "userId": 104,
-      "like_count": 45,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T11:05:00Z"
+      "createdAt": "2026-03-21T11:05:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "15",
       "title": "Why I still like REST for learning",
       "content": "GraphQL is cool, but for practicing data fetching patterns and client state flow, a simple REST API keeps the learning signal really clear.",
       "userId": 105,
-      "like_count": 26,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T12:20:00Z"
+      "createdAt": "2026-03-21T12:20:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "16",
       "title": "Testing reducers gave me more confidence",
       "content": "Wrote a few reducer tests today and it made refactoring way less stressful. Fast feedback loops are underrated.",
       "userId": 106,
-      "like_count": 33,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T13:10:00Z"
+      "createdAt": "2026-03-21T13:10:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "17",
       "title": "Feature folders are winning me over",
       "content": "Grouping slices, selectors, components, and hooks by feature instead of file type is making the project feel much easier to navigate.",
       "userId": 107,
-      "like_count": 21,
-      "isBookmarked": false,
-      "createdAt": "2026-03-21T14:00:00Z"
+      "createdAt": "2026-03-21T14:00:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     },
     {
       "id": "19",
       "title": "State design matters more than I thought",
       "content": "A lot of bugs disappeared once I stopped stuffing everything into arrays and started being intentional about state shape.",
       "userId": 109,
-      "like_count": 36,
-      "isBookmarked": true,
-      "createdAt": "2026-03-21T15:35:00Z"
+      "createdAt": "2026-03-21T15:35:00Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     }
   ],
   "comments": [
@@ -646,6 +696,167 @@
       "postId": null,
       "userId": 101,
       "createdAt": "2026-04-17T16:08:20.388Z"
+    },
+    {
+      "id": "12B5cmXsS7A",
+      "content": "Testing commetns\n",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T11:59:05.635Z"
+    },
+    {
+      "id": "vS634cXA244",
+      "content": "Testing commetns\n",
+      "postId": "8",
+      "userId": 109,
+      "createdAt": "2026-04-21T11:59:14.879Z"
+    },
+    {
+      "id": "PleNz1JiaWA",
+      "content": "Test comments",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T12:03:07.647Z"
+    },
+    {
+      "id": "mzKNDRJiJEw",
+      "content": "Test createCommentAsync",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T12:07:57.865Z"
+    },
+    {
+      "id": "Obdf_kyZ_vc",
+      "content": "Test createCommentAsync",
+      "postId": "8",
+      "userId": 109,
+      "createdAt": "2026-04-21T12:07:59.164Z"
+    },
+    {
+      "id": "9K81kTSUkK0",
+      "content": "Test optimistic comment",
+      "postId": "8",
+      "userId": 107,
+      "createdAt": "2026-04-21T13:25:28.799Z"
+    },
+    {
+      "id": "yS3p8kEPIJ0",
+      "content": "Test optimistic comment",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T13:27:38.979Z"
+    },
+    {
+      "id": "n0qmnQ8AliA",
+      "content": "Test optimistic comment",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T13:27:45.750Z"
+    },
+    {
+      "id": "fZijJhcW1g4",
+      "content": "Test optimistic comment",
+      "postId": "8",
+      "userId": 102,
+      "createdAt": "2026-04-21T13:27:47.844Z"
+    },
+    {
+      "id": "_HTvKa7RCGM",
+      "content": "Test optimistic comment",
+      "postId": "8",
+      "userId": 101,
+      "createdAt": "2026-04-21T13:27:50.253Z"
+    },
+    {
+      "id": "EX6Sg8WMl80",
+      "content": "Test optimistic comment",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T13:27:51.340Z"
+    },
+    {
+      "id": "UWaC5rup0dI",
+      "content": "Retest optimistic comment",
+      "postId": "8",
+      "userId": 106,
+      "createdAt": "2026-04-21T13:28:23.774Z"
+    },
+    {
+      "id": "mudBWNBwEQo",
+      "content": "Retest optimistic comment",
+      "postId": "8",
+      "userId": 102,
+      "createdAt": "2026-04-21T13:28:36.420Z"
+    },
+    {
+      "id": "7mUy417cnUc",
+      "content": "Retest optimistic comment",
+      "postId": "8",
+      "userId": 106,
+      "createdAt": "2026-04-21T13:28:40.234Z"
+    },
+    {
+      "id": "3hK9nAur0ug",
+      "content": "Retest optimistic comment",
+      "postId": "8",
+      "userId": 102,
+      "createdAt": "2026-04-21T13:28:43.868Z"
+    },
+    {
+      "id": "TqnJFsJVvj8",
+      "content": "Try optimistic comment",
+      "postId": "8",
+      "userId": 102,
+      "createdAt": "2026-04-21T13:31:00.376Z"
+    },
+    {
+      "id": "KROz6xjyCWE",
+      "content": "Try optimistic comment",
+      "postId": "8",
+      "userId": 106,
+      "createdAt": "2026-04-21T13:31:14.098Z"
+    },
+    {
+      "id": "t_SD7ng-woM",
+      "content": "Try optimistic comment",
+      "postId": "8",
+      "userId": 107,
+      "createdAt": "2026-04-21T13:31:17.598Z"
+    },
+    {
+      "id": "Vq_CJpsBZdo",
+      "content": "Try optimistic comment",
+      "postId": "8",
+      "userId": 105,
+      "createdAt": "2026-04-21T13:32:30.375Z"
+    },
+    {
+      "id": "g9Tx-yCjku4",
+      "content": "Try optimistic comment 87",
+      "postId": "8",
+      "userId": 103,
+      "createdAt": "2026-04-21T13:32:42.164Z"
+    },
+    {
+      "id": "_tb1x53VZZU",
+      "content": "Test optimistic comment 899",
+      "postId": "8",
+      "userId": 108,
+      "createdAt": "2026-04-21T13:35:07.059Z"
+    },
+    {
+      "id": "RVM50QoNGjM",
+      "content": "jfkhkdfs",
+      "postId": "8",
+      "userId": 107,
+      "createdAt": "2026-04-21T14:17:36.456Z"
+    },
+    {
+      "id": "lxOF9Zn01jM",
+      "content": "test",
+      "postId": "8",
+      "userId": 104,
+      "createdAt": "2026-04-21T14:23:46.382Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
