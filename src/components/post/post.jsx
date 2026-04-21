@@ -41,76 +41,73 @@ const Post = ({ post }) => {
 
 
 
-        // delete a post by its id
-        const handleDeletePost = async (post) => {
-            try {
-                dispatch(deletePost(post))
-
-                await dispatch(deletePostAsync(post)).unwrap()
-
-                navigate('/')
-
-            }
-            catch(error) {
-                // handle error later
-                navigate('/')        
-            }
+    // delete a post by its id
+    const handleDeletePost = async (post) => {
+        try {
+            dispatch(deletePost(post))
+            await dispatch(deletePostAsync(post)).unwrap()
+            navigate('/')
         }
+        catch(error) {
+            // handle error later
+            navigate('/')        
+        }
+    }
 
     
 
     return (
         <article className={styles.postCard} key={post.id}>
-        <section className={styles.postCard__header}>
-            <PostAuthor userId={post.userId} />
+            <section className={styles.postCard__header}>
+                <PostAuthor userId={post.userId} />
 
-            {showReadText ? (
-            <Link to={`post-info/${post.id}`} className="link">
-                <p className={styles.postCard__readMore}>Read</p>
-            </Link>
-            ) : (
-            <p
-                className={styles.postCard__readMore}
-                onClick={() => handleDeletePost(post)}
-            >
-                <MdDelete size={20} />
-            </p>
-            )}
-        </section>
-
-        <section className={styles.postCard__details}>
-            <h3 className={styles.postCard__title}>{post.title}</h3>
-            <p className={styles.postCard__content}>{post.content}</p>
-        </section>
-
-        <section className={styles.postCard__metadata}>
-            <div className={styles.postCard__iconContainer}>
-                <p className={styles.postCard__iconWrapper}>
-                    <AiOutlineLike size={22} />
+                {showReadText ? (
+                <Link to={`post-info/${post.id}`} className="link">
+                    <p className={styles.postCard__readMore}>Read</p>
+                </Link>
+                ) : (
+                <p
+                    className={styles.postCard__readMore}
+                    onClick={() => handleDeletePost(post)}
+                >
+                    <MdDelete size={20} />
                 </p>
-                <p className={styles.postCard__iconCount}>{post.reactions.numberOfLikes}</p>
-            </div>
+                )}
+            </section>
 
-            <div className={styles.postCard__iconContainer}>
-                <p className={styles.postCard__iconWrapper}>
-                    <FaRegBookmark size={20} />
-                </p>
-                <p className={styles.postCard__iconCount}>{post.reactions.numberOfComments}</p>
-            </div>
+            <section className={styles.postCard__details}>
+                <h3 className={styles.postCard__title}>{post.title}</h3>
+                <p className={styles.postCard__content}>{post.content}</p>
+            </section>
 
-            <div className={styles.postCard__iconContainer}>
-                <p className={styles.postCard__iconWrapper}>
-                    <FaRegCommentAlt size={20} />
-                </p>
-                <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
-            </div>
+            <section className={styles.postCard__metadata}>
+                <div className={styles.postCard__iconContainer}>
+                    <p className={styles.postCard__iconWrapper}>
+                        <AiOutlineLike size={22} />
+                    </p>
+                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfLikes}</p>
+                </div>
 
-            <div className={styles.postCard__dateContainer}>
-                <p className={styles.postCard__iconCount}>
-                    Last Updated: {new Date().toISOString().split('T')[0]}
-                </p>
-            </div>
-        </section>
+                <div className={styles.postCard__iconContainer}>
+                    <p className={styles.postCard__iconWrapper}>
+                        <FaRegBookmark size={20} />
+                    </p>
+                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfComments}</p>
+                </div>
+
+                <div className={styles.postCard__iconContainer}>
+                    <p className={styles.postCard__iconWrapper}>
+                        <FaRegCommentAlt size={20} />
+                    </p>
+                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
+                </div>
+
+                <div className={styles.postCard__dateContainer}>
+                    <p className={styles.postCard__iconCount}>
+                        Last Updated: {new Date().toISOString().split('T')[0]}
+                    </p>
+                </div>
+            </section>
         </article>   
      )
 }
