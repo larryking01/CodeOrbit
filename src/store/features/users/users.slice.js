@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "./users.thunks";
-
+import { setCurrentUser } from "../../../helpers/getRandomUser";
 
 
 
@@ -9,7 +9,8 @@ const usersSlice = createSlice({
     initialState: {
         loading: 'idle', // idle | loading | successful | failed
         users: [],
-        errors: null
+        currentUser: {},
+        error: null
     },
     reducers: {
 
@@ -21,11 +22,13 @@ const usersSlice = createSlice({
             })
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 let fetchedUsers = action.payload
+                let currentUser = setCurrentUser(fetchedUsers)
                 state.users = fetchedUsers
+                state.currentUser = currentUser
                 state.loading = 'successful'
             })
             .addCase(fetchUsers.rejected, (state, action) => {
-                state.errors = action.error 
+                state.error = action.payload
                 state.loading = 'failed'
             })
     }

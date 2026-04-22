@@ -7,3 +7,11 @@ export const getRandomUser = () => {
     let index = Math.floor(Math.random() * 9)
     return dummyUsers[ index ]
 }
+
+
+// retrieve random user from store and set them as the current user for app session.
+export const setCurrentUser = (users) => {
+    let index = Math.floor(Math.random() * 9)
+    return users[index]
+
+}
