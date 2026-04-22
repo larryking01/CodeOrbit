@@ -43,9 +43,14 @@ const AddPost = () => {
             title,
             content,
             userId: getRandomUser().id,
-            like_count: 0,
-            isBookmarked: false,
-            createdAt: new Date().toISOString()
+            createdAt: new Date().toISOString(),
+            reactions: {
+                numberOfLikes: 0,
+                numberOfComments: 0,
+                numberOfBookmarks: 0,
+                isBookmarked: false,
+                isLiked: false
+            }
         }
 
         try {
