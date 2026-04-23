@@ -9,16 +9,14 @@ import { FcLike } from "react-icons/fc";
 import { IoMdBookmark } from "react-icons/io";
 import { GoBookmark } from "react-icons/go";
 import { AiOutlineComment } from "react-icons/ai";
-import { FaRegCommentAlt  } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 
 import PostAuthor from '../postAuthor/postAuthor';
 import { deletePostAsync } from '../../store/features/posts/posts.thunks';
 import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
-import { selectPostLikedStatus, selectPostBookmarkedStatus } from '../../store/features/posts/posts.selectors';
+import { selectPostLikedStatus, selectPostBookmarkedStatus, selectPostById } from '../../store/features/posts/posts.selectors';
 import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
-
 
 
 
@@ -36,6 +34,8 @@ const Post = ({ post }) => {
 
     const numberOfComments = useSelector(state => selectNumberOfComments(state, post.id))
 
+    const updatedPost = useSelector(state => selectPostById(state, post.id))
+
 
     // show "Read" or "Delete" action on post based on current route
     useEffect(() => {
@@ -46,11 +46,7 @@ const Post = ({ post }) => {
             setShowReadText( false )
         }
 
-        console.log("isLiked = ", isLiked)
-        console.log("isBookmarked = ", isBookmarked)
-        console.log("number of comments = ", numberOfComments)
-
-    },[showReadText, location, isBookmarked, isLiked])
+    },[showReadText, location, updatedPost])
 
 
 

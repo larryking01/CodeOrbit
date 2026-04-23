@@ -1,6 +1,5 @@
 import styles from './navbar.module.scss'
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 
 import { IoAddCircleOutline } from "react-icons/io5";
@@ -20,9 +19,6 @@ const Navbar = () => {
 
     const currentUser = useSelector(getCurrentUser)
 
-    useEffect(() => {
-        console.log("current user = ", currentUser )
-    }, [ currentUser ])
 
 
 

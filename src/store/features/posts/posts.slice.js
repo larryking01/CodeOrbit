@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { fetchPosts, createPost, deletePostAsync } from "./posts.thunks";
-
 
 
 
@@ -32,6 +31,7 @@ const postsSlice = createSlice({
         updatePostLikes(state, action) {
             let postId = action.payload 
             let selectedPost = state.posts.find(post => post.id === postId)
+            console.log("before sync update: selected post is ", current(selectedPost))
 
             if(!selectedPost.reactions.isLiked) {
                 selectedPost.reactions.numberOfLikes += 1
@@ -41,6 +41,8 @@ const postsSlice = createSlice({
                 selectedPost.reactions.numberOfLikes -= 1
                 selectedPost.reactions.isLiked = false
             }
+
+            console.log("after sync update: selected post is ", current(selectedPost))
         },
         updatePostBookmarks(state, action) {
             let postId = action.payload 
