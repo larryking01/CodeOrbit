@@ -9,8 +9,7 @@ import { createComment } from '../../store/features/comments/comments.slice'
 import { createCommentAsync } from '../../store/features/comments/comments.thunks'
 import Post from '../../components/post/post'
 import Comment from '../../components/comment/comment'
-import { getRandomUser } from '../../helpers/getRandomUser'
-
+import { getCurrentUser } from '../../store/features/users/users.selectors'
 
 
 
@@ -22,6 +21,7 @@ const PostInfo = () => {
     const dispatch = useDispatch()
     const { postId } = useParams()
     const post = useSelector(state => selectPostById(state, postId))
+    const currentUser = useSelector(getCurrentUser)
     const [content, setContent] = useState('')
 
 
@@ -37,7 +37,7 @@ const PostInfo = () => {
             id: nanoid(5),
             content,
             postId,
-            userId: getRandomUser().id,
+            userId: currentUser.id,
             createdAt: new Date().toISOString()
         }
 

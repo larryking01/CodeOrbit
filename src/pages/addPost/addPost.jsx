@@ -1,12 +1,12 @@
 import styles from './addPost.module.scss'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 
 import { addNewPost } from '../../store/features/posts/posts.slice'
 import { createPost } from '../../store/features/posts/posts.thunks'
-import { getRandomUser } from '../../helpers/getRandomUser'
+import { getCurrentUser } from '../../store/features/users/users.selectors'
 
 
 
@@ -24,6 +24,7 @@ const AddPost = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const currentUser = useSelector(getCurrentUser)
 
 
     const handleTitleChange = (event) => {
@@ -42,10 +43,15 @@ const AddPost = () => {
             id: nanoid(5),    
             title,
             content,
-            userId: getRandomUser().id,
-            like_count: 0,
-            isBookmarked: false,
-            createdAt: new Date().toISOString()
+            userId: currentUser.id,
+            createdAt: new Date().toISOString(),
+            reactions: {
+                numberOfLikes: 0,
+                numberOfComments: 0,
+                numberOfBookmarks: 0,
+                isBookmarked: false,
+                isLiked: false
+            }
         }
 
         try {

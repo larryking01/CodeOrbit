@@ -351,6 +351,76 @@
         "isBookmarked": false,
         "isLiked": false
       }
+    },
+    {
+      "id": "BK1yIyAOXJ0",
+      "title": "fail",
+      "content": "post by user",
+      "userId": 108,
+      "createdAt": "2026-04-22T15:37:07.903Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "fOZ6c8cKAzQ",
+      "title": "Getting the idea of derived selectors opens up another dimension",
+      "content": "new by user",
+      "userId": 105,
+      "createdAt": "2026-04-22T15:38:20.971Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "9nHg1LP2b6A",
+      "title": "Reducers are supposed to be pure and synchronoussdgd",
+      "content": "new by user",
+      "userId": 102,
+      "createdAt": "2026-04-22T15:38:48.319Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "cS6tfbXLgPg",
+      "title": "Daniel Mensah's Pure Reducers",
+      "content": "Reducers are synchronous",
+      "userId": "103",
+      "createdAt": "2026-04-22T16:04:58.558Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "tRM57WMSU5g",
+      "title": "Grace kim's selectors",
+      "content": "Selectors",
+      "userId": "108",
+      "createdAt": "2026-04-22T16:05:53.207Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     }
   ],
   "comments": [
@@ -857,6 +927,76 @@
       "postId": "8",
       "userId": 104,
       "createdAt": "2026-04-21T14:23:46.382Z"
+    },
+    {
+      "id": "xMKiagI0jf0",
+      "content": "",
+      "postId": "19",
+      "userId": 108,
+      "createdAt": "2026-04-21T15:48:10.625Z"
+    },
+    {
+      "id": "cMaEG9eEceM",
+      "content": "",
+      "postId": "19",
+      "userId": 103,
+      "createdAt": "2026-04-21T15:49:12.887Z"
+    },
+    {
+      "id": "hcG4OVewBB8",
+      "content": "",
+      "postId": "19",
+      "userId": 105,
+      "createdAt": "2026-04-21T15:49:13.553Z"
+    },
+    {
+      "id": "Vqe1jFCUfzU",
+      "content": "",
+      "postId": "15",
+      "userId": 103,
+      "createdAt": "2026-04-21T15:49:30.656Z"
+    },
+    {
+      "id": "IncJ0IYPMpg",
+      "content": "",
+      "postId": "15",
+      "userId": 102,
+      "createdAt": "2026-04-21T15:49:31.292Z"
+    },
+    {
+      "id": "_jrPtf1mkw4",
+      "content": "nxgdh",
+      "postId": "9",
+      "userId": 108,
+      "createdAt": "2026-04-21T16:47:13.266Z"
+    },
+    {
+      "id": "YXe6_flnT1s",
+      "content": "Comment by usr",
+      "postId": "8",
+      "userId": 106,
+      "createdAt": "2026-04-22T15:32:59.713Z"
+    },
+    {
+      "id": "hT7zTBiYIkM",
+      "content": "Testing out user-scoped comments",
+      "postId": "tRM57WMSU5g",
+      "userId": "101",
+      "createdAt": "2026-04-22T16:12:16.312Z"
+    },
+    {
+      "id": "g0k4aE5GrXs",
+      "content": "Testing again user scoped comments",
+      "postId": "tRM57WMSU5g",
+      "userId": "109",
+      "createdAt": "2026-04-22T16:12:49.029Z"
+    },
+    {
+      "id": "PIcR5pbTHbI",
+      "content": "sds",
+      "postId": "tRM57WMSU5g",
+      "userId": "107",
+      "createdAt": "2026-04-22T16:13:48.823Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

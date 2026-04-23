@@ -1,20 +1,22 @@
 import styles from './post.module.scss'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
-import { AiOutlineLike } from 'react-icons/ai'
-import { FaRegBookmark } from "react-icons/fa6";
-import { FaRegCommentAlt  } from "react-icons/fa";
+
+import { IoMdHeartEmpty } from "react-icons/io";
+import { FcLike } from "react-icons/fc";
+import { IoMdBookmark } from "react-icons/io";
+import { GoBookmark } from "react-icons/go";
+import { AiOutlineComment } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
 
 import PostAuthor from '../postAuthor/postAuthor';
 import { deletePostAsync } from '../../store/features/posts/posts.thunks';
-import { deletePost } from '../../store/features/posts/posts.slice';
-
-
-
+import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
+import { selectPostLikedStatus, selectPostBookmarkedStatus, selectPostById } from '../../store/features/posts/posts.selectors';
+import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
 
 
 
@@ -27,6 +29,13 @@ const Post = ({ post }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const isLiked = useSelector(state => selectPostLikedStatus(state, post.id))
+    const isBookmarked = useSelector(state => selectPostBookmarkedStatus(state, post.id))
+
+    const numberOfComments = useSelector(state => selectNumberOfComments(state, post.id))
+
+    const updatedPost = useSelector(state => selectPostById(state, post.id))
+
 
     // show "Read" or "Delete" action on post based on current route
     useEffect(() => {
@@ -37,7 +46,7 @@ const Post = ({ post }) => {
             setShowReadText( false )
         }
 
-    },[showReadText, location])
+    },[showReadText, location, updatedPost])
 
 
 
@@ -52,6 +61,32 @@ const Post = ({ post }) => {
             // handle error later
             navigate('/')        
         }
+    }
+
+
+    // like or unlike a post
+    const handleLikeOrUnlikePost = async (postId) => {
+        try {
+            dispatch(updatePostLikes(postId))
+        }
+        catch(error) {
+            // handle error later 
+            console.log("error updating posts like feature: ", error)
+        }
+
+    }
+
+
+    // add or remove bookmark
+    const handleAddOrRemoveBookmark = async (postId) => {
+        try {
+            dispatch(updatePostBookmarks(postId))
+        }
+        catch(error) {
+            // handle error later 
+            console.log("error updating posts bookmark feature: ", error)
+        }
+
     }
 
     
@@ -82,24 +117,38 @@ const Post = ({ post }) => {
 
             <section className={styles.postCard__metadata}>
                 <div className={styles.postCard__iconContainer}>
-                    <p className={styles.postCard__iconWrapper}>
-                        <AiOutlineLike size={22} />
-                    </p>
+                    {
+                        isLiked ?
+                            <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post.id)}>
+                                <FcLike size={22} />
+                            </p>
+                            :
+                            <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post.id)}>
+                                <IoMdHeartEmpty size={22} />
+                            </p>
+                    }
                     <p className={styles.postCard__iconCount}>{post.reactions.numberOfLikes}</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
-                    <p className={styles.postCard__iconWrapper}>
-                        <FaRegBookmark size={20} />
-                    </p>
-                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfComments}</p>
+                    {
+                        isBookmarked ?
+                            <p className={styles.postCard__iconWrapper} onClick={() => handleAddOrRemoveBookmark(post.id)}>
+                                <IoMdBookmark size={20} color='red' />
+                            </p>
+                            :
+                            <p className={styles.postCard__iconWrapper} onClick={() => handleAddOrRemoveBookmark(post.id)}>
+                                <GoBookmark size={20} />
+                            </p>
+                    }
+                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
                     <p className={styles.postCard__iconWrapper}>
-                        <FaRegCommentAlt size={20} />
+                        <AiOutlineComment size={20} />
                     </p>
-                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
+                    <p className={styles.postCard__iconCount}>{ numberOfComments }</p>
                 </div>
 
                 <div className={styles.postCard__dateContainer}>
