@@ -73,7 +73,6 @@ const Post = ({ post }) => {
     // like or unlike a post
     const handleLikeOrUnlikePost = async (post) => {
         try {
-
             const nextPost = {
                 ...post,
                 reactions: {
@@ -106,6 +105,8 @@ const Post = ({ post }) => {
             // handle error later 
             console.log("error updating posts bookmark feature: ", error)
         }
+
+        
     }
 
     
