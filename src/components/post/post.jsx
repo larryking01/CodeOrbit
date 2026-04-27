@@ -17,6 +17,8 @@ import { deletePostAsync } from '../../store/features/posts/posts.thunks';
 import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
 import { selectPostLikedStatus, selectPostBookmarkedStatus, selectPostById } from '../../store/features/posts/posts.selectors';
 import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
+import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
+
 
 
 
@@ -25,6 +27,7 @@ import { selectNumberOfComments } from '../../store/features/comments/comments.s
 const Post = ({ post }) => {
 
     const [showReadText, setShowReadText] = useState( true )
+    const [ currentPost, setCurrentPost ] = useState()
     const location = useLocation()
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -46,6 +49,8 @@ const Post = ({ post }) => {
             setShowReadText( false )
         }
 
+        console.log("from effect, updated post is: ", updatedPost)
+
     },[showReadText, location, updatedPost])
 
 
@@ -64,17 +69,32 @@ const Post = ({ post }) => {
     }
 
 
+
     // like or unlike a post
-    const handleLikeOrUnlikePost = async (postId) => {
+    const handleLikeOrUnlikePost = async (post) => {
         try {
-            dispatch(updatePostLikes(postId))
+
+            const nextPost = {
+                ...post,
+                reactions: {
+                    ...post.reactions,
+                    numberOfLikes: post.reactions.isLiked ?
+                        post.reactions.numberOfLikes - 1
+                        :
+                        post.reactions.numberOfLikes + 1,
+                    isLiked: !post.reactions.isLiked
+                }
+            }
+
+            dispatch(updatePostLikes(nextPost))
+            await dispatch(updatePostLikesAsync(nextPost)).unwrap()
         }
         catch(error) {
             // handle error later 
             console.log("error updating posts like feature: ", error)
         }
-
     }
+
 
 
     // add or remove bookmark
@@ -86,7 +106,6 @@ const Post = ({ post }) => {
             // handle error later 
             console.log("error updating posts bookmark feature: ", error)
         }
-
     }
 
     
@@ -119,15 +138,15 @@ const Post = ({ post }) => {
                 <div className={styles.postCard__iconContainer}>
                     {
                         isLiked ?
-                            <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post.id)}>
+                            <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post)}>
                                 <FcLike size={22} />
                             </p>
                             :
-                            <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post.id)}>
+                            <p className={styles.postCard__iconWrapper} onClick={() => handleLikeOrUnlikePost(post)}>
                                 <IoMdHeartEmpty size={22} />
                             </p>
                     }
-                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfLikes}</p>
+                    <p className={styles.postCard__iconCount}>{updatedPost.reactions.numberOfLikes}</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
@@ -141,7 +160,7 @@ const Post = ({ post }) => {
                                 <GoBookmark size={20} />
                             </p>
                     }
-                    <p className={styles.postCard__iconCount}>{post.reactions.numberOfBookmarks}</p>
+                    <p className={styles.postCard__iconCount}>{updatedPost.reactions.numberOfBookmarks}</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>

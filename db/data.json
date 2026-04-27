@@ -219,11 +219,11 @@
       "userId": 108,
       "createdAt": "2026-03-20T14:10:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -233,11 +233,11 @@
       "userId": 109,
       "createdAt": "2026-03-20T15:00:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -247,11 +247,11 @@
       "userId": 110,
       "createdAt": "2026-03-20T16:25:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -261,11 +261,11 @@
       "userId": 101,
       "createdAt": "2026-03-21T08:40:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -289,11 +289,11 @@
       "userId": 104,
       "createdAt": "2026-03-21T11:05:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {

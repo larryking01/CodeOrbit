@@ -133,3 +133,45 @@ export const deletePostAsync = createAsyncThunk('posts/deletePost', async (post,
 
 
 
+export const updatePostLikesAsync = createAsyncThunk('posts/updatePostLikes', async (post, thunkApi) => {
+    let endpoint = `${ api_url }/posts/${ post.id }` 
+
+    // initialize abort controller to force fetch operation to terminate after 5 seconds.
+    let controller = new AbortController()
+
+    let timeoutId = setTimeout(() => {
+        controller.abort()
+    }, 5000)
+
+
+    try {
+        let response = await fetch(endpoint, {
+            method: 'PATCH',
+            body: JSON.stringify(post),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            signal: controller.signal
+        })
+
+        if(!response.ok) {
+            throw new Error("Sorry, we could not update the likes on your post right now. Please try again later.")
+        }
+        else {
+            let data = await response.json()
+            return data
+        }
+    }
+    catch( error ) {
+        if(error.name === 'AbortError') {
+            return thunkApi.rejectWithValue("Sorry, the request timed out. Check your network connection and try again.")
+        }
+        else {
+            return thunkApi.rejectWithValue("We ran into an error while updating the likes on your post. Please try again later.")
+        }
+    }
+    finally {
+        clearTimeout( timeoutId )
+    }
+})
+
