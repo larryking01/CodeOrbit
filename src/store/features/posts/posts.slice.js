@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { fetchPosts, createPost, deletePostAsync } from "./posts.thunks";
+import { fetchPosts, createPost, deletePostAsync, updatePostLikesAsync } from "./posts.thunks";
 
 
 
@@ -29,20 +29,9 @@ const postsSlice = createSlice({
             state.error = null
         },
         updatePostLikes(state, action) {
-            let postId = action.payload 
-            let selectedPost = state.posts.find(post => post.id === postId)
-            console.log("before sync update: selected post is ", current(selectedPost))
-
-            if(!selectedPost.reactions.isLiked) {
-                selectedPost.reactions.numberOfLikes += 1
-                selectedPost.reactions.isLiked = true
-            }
-            else {
-                selectedPost.reactions.numberOfLikes -= 1
-                selectedPost.reactions.isLiked = false
-            }
-
-            console.log("after sync update: selected post is ", current(selectedPost))
+            let nextPost = action.payload
+            let index = state.posts.findIndex( post => post.id === nextPost.id )
+            state.posts[index] = nextPost
         },
         updatePostBookmarks(state, action) {
             let postId = action.payload 
@@ -111,6 +100,16 @@ const postsSlice = createSlice({
                 delete state.temporaryPostsStore[deletedPost.id]
                 state.loading = 'failed'
                 state.error = action.payload
+            })
+
+            .addCase(updatePostLikesAsync.fulfilled, (state, action) => {
+                let updatedPost = action.payload
+                console.log("post updated successfully: ", updatedPost)
+            })
+
+            .addCase(updatePostLikesAsync.rejected, (state, action) => {
+                let failedUpdate = action.error
+                console.log("failed to update post")
             })
     }
 })
