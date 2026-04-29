@@ -22,3 +22,10 @@ export const selectPostBookmarkedStatus = (state, postId) => {
     let isBookmarked = selectedPost.reactions.isBookmarked 
     return isBookmarked
 }
+
+
+
+export const selectPostLoadingStatus = (state) => {
+    let loadingStatus = state.posts.loading 
+    return loadingStatus
+}
