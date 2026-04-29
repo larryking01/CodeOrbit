@@ -1,10 +1,10 @@
 @use '../../style/variables' as *;
-
+@use '../../style/mixins' as *;
 
 
 
 /* using BEM styling */
-.loading {
+.loading__modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,12 +13,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
 }
 
 
-.loading__modalContent {
+.loading__modal {
+    // background-color: white;
+    // padding: 2rem;
+    // border-radius: 0.625rem;
+}
+
+
+
+.loading__pulseDivsContainer {
     width: 17rem;
     display: flex;
     justify-content: space-between;
@@ -26,49 +34,29 @@
     margin-bottom: 2rem;
 }
 
-
-.loading__blueLoader {
-    background-color: $purple-col;
-    width: 1rem;
-    height: 1rem;
-    padding: 1rem;
-    border-radius: 50%;
-    animation: loading_pulse 2s ease-in-out 0s infinite;
+.loading__pulseDiv--blue {
+    @include pulseDiv($blue-col)
 }
 
-.loading__redLoader {
-    background-color: $red-col;
-    width: 1rem;
-    height: 1rem;
-    padding: 1rem;
-    border-radius: 50%;
-    animation: loading_pulse 2s ease-in-out 0s infinite;
+.loading__pulseDiv--red {
+    @include pulseDiv($red-col)
 }
 
-.loading__orangeLoader {
-    background-color: $green-col;
-    width: 1rem;
-    height: 1rem;
-    padding: 1rem;
-    border-radius: 50%;
-    animation: loading_pulse 2s ease-in-out 0s infinite;
+.loading__pulseDiv--green {
+    @include pulseDiv($green-col)
 }
 
-.loading__greenLoader {
-    background-color: $yellow-col;
-    width: 1rem;
-    height: 1rem;
-    padding: 1rem;
-    border-radius: 50%;
-    animation: loading_pulse 1s ease-in-out 0s infinite;
+.loading__pulseDiv--yellow {
+    @include pulseDiv($yellow-col)
 }
 
 
 .loading__description {
-    
+    font-style: italic;
 }
 
 
+/* pulse animation for loading indicators */
 @keyframes loading_pulse {
     0% {
         transform: scale(1.1);
