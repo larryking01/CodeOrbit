@@ -49,9 +49,7 @@ const Post = ({ post }) => {
             setShowReadText( false )
         }
 
-        console.log("from effect, updated post is: ", updatedPost)
-
-    },[showReadText, location, updatedPost])
+    },[showReadText, location])
 
 
 

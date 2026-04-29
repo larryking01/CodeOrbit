@@ -219,11 +219,11 @@
       "userId": 108,
       "createdAt": "2026-03-20T14:10:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -261,11 +261,11 @@
       "userId": 101,
       "createdAt": "2026-03-21T08:40:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -275,11 +275,11 @@
       "userId": 103,
       "createdAt": "2026-03-21T10:15:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -303,11 +303,11 @@
       "userId": 105,
       "createdAt": "2026-03-21T12:20:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -317,11 +317,11 @@
       "userId": 106,
       "createdAt": "2026-03-21T13:10:00Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -350,76 +350,6 @@
         "numberOfBookmarks": 0,
         "isBookmarked": false,
         "isLiked": true
-      }
-    },
-    {
-      "id": "BK1yIyAOXJ0",
-      "title": "fail",
-      "content": "post by user",
-      "userId": 108,
-      "createdAt": "2026-04-22T15:37:07.903Z",
-      "reactions": {
-        "numberOfLikes": 0,
-        "numberOfComments": 0,
-        "numberOfBookmarks": 0,
-        "isBookmarked": false,
-        "isLiked": false
-      }
-    },
-    {
-      "id": "fOZ6c8cKAzQ",
-      "title": "Getting the idea of derived selectors opens up another dimension",
-      "content": "new by user",
-      "userId": 105,
-      "createdAt": "2026-04-22T15:38:20.971Z",
-      "reactions": {
-        "numberOfLikes": 0,
-        "numberOfComments": 0,
-        "numberOfBookmarks": 0,
-        "isBookmarked": false,
-        "isLiked": false
-      }
-    },
-    {
-      "id": "9nHg1LP2b6A",
-      "title": "Reducers are supposed to be pure and synchronoussdgd",
-      "content": "new by user",
-      "userId": 102,
-      "createdAt": "2026-04-22T15:38:48.319Z",
-      "reactions": {
-        "numberOfLikes": 0,
-        "numberOfComments": 0,
-        "numberOfBookmarks": 0,
-        "isBookmarked": false,
-        "isLiked": false
-      }
-    },
-    {
-      "id": "cS6tfbXLgPg",
-      "title": "Daniel Mensah's Pure Reducers",
-      "content": "Reducers are synchronous",
-      "userId": "103",
-      "createdAt": "2026-04-22T16:04:58.558Z",
-      "reactions": {
-        "numberOfLikes": 0,
-        "numberOfComments": 0,
-        "numberOfBookmarks": 0,
-        "isBookmarked": false,
-        "isLiked": false
-      }
-    },
-    {
-      "id": "tRM57WMSU5g",
-      "title": "Grace kim's selectors",
-      "content": "Selectors",
-      "userId": "108",
-      "createdAt": "2026-04-22T16:05:53.207Z",
-      "reactions": {
-        "numberOfLikes": 0,
-        "numberOfComments": 0,
-        "numberOfBookmarks": 0,
-        "isBookmarked": false,
-        "isLiked": false
       }
     }
   ],
@@ -980,21 +910,21 @@
     {
       "id": "hT7zTBiYIkM",
       "content": "Testing out user-scoped comments",
-      "postId": "tRM57WMSU5g",
+      "postId": null,
       "userId": "101",
       "createdAt": "2026-04-22T16:12:16.312Z"
     },
     {
       "id": "g0k4aE5GrXs",
       "content": "Testing again user scoped comments",
-      "postId": "tRM57WMSU5g",
+      "postId": null,
       "userId": "109",
       "createdAt": "2026-04-22T16:12:49.029Z"
     },
     {
       "id": "PIcR5pbTHbI",
       "content": "sds",
-      "postId": "tRM57WMSU5g",
+      "postId": null,
       "userId": "107",
       "createdAt": "2026-04-22T16:13:48.823Z"
     }
