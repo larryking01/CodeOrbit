@@ -8,17 +8,18 @@ import styles from './loadingIndicator.module.scss'
 
 const LoadingIndicator = ({ loadingText }) => {
 
+
     return (
-        <main className={ styles.loading }>
-            <article>
-                <section className={ styles.loading__modalContent }>
-                        <div className={ styles.loading__blueLoader }></div>
+        <main className={ styles.loading__modalOverlay }>
+            <article className={ styles.loading__modal }>
+                <section className={ styles.loading__pulseDivsContainer }>
+                        <div className={ styles['loading__pulseDiv--blue'] }></div>
 
-                        <div className={ styles.loading__redLoader }></div>
+                        <div className={ styles['loading__pulseDiv--red'] }></div>
 
-                        <div className={ styles.loading__orangeLoader }></div>
+                        <div className={ styles['loading__pulseDiv--green'] }></div>
 
-                        <div className={ styles.loading__greenLoader }></div>
+                        <div className={ styles['loading__pulseDiv--yellow'] }></div>
                 </section>
 
                 <section className={ styles.loading__description }>

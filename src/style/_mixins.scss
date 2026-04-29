@@ -1,0 +1,14 @@
+@use './variables' as *;
+
+
+
+
+
+@mixin pulseDiv($backgroundColor) {
+    background-color: $backgroundColor;
+    width: 1rem;
+    height: 1rem;
+    padding: 1rem;
+    border-radius: 50%;
+    animation: loading_pulse 2s ease-in-out 0s infinite;
+}
