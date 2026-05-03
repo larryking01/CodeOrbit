@@ -1,0 +1,1 @@
+export const selectToastVisibility = (state) => state.toast.visible
