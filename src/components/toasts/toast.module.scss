@@ -1,0 +1,72 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+
+
+
+
+/* applying BEM styling for scalibility */
+.toast {
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 25rem;
+    height: 5rem;
+    border-radius: 0.625rem;
+    transform: translateX(120%); // start offscreen
+    animation: toastSlide 4s ease forwards;
+}
+
+@keyframes toastSlide {
+    0% {
+        transform: translateX(120%);  // offscreen right
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateX(0);  // visible
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(0);  // visible
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(120%);  // offscreen right
+        opacity: 0;
+    }
+}
+
+
+.toast--success {
+    background-color: $success-toast-bg;
+    color: $success-toast-text-col;
+    border-left: 6px solid $success-toast-text-col;
+}
+
+.toast--error {
+    background-color: #f8aeae;
+    color: $error-toast-text-col;
+    border-left: 6px solid $error-toast-text-col;
+}
+
+.toast__header {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        font-weight: bold;
+    }
+}
+
+.toast__closeIcon {
+    cursor: pointer;
+}
+
+.toast__content {
+    font-size: 0.93rem;
+}

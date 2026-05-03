@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom"
 
 import Navbar from "../navbar/navbar"
 import Sidebar from "../sidebar/sidebar"
-
+import Toast from '../toasts/toast'
 
 
 
@@ -15,6 +15,7 @@ const Layout = () => {
 
 
     
+    
     return (
         <main className={ styles.layout }>
             <Sidebar />
@@ -25,6 +26,8 @@ const Layout = () => {
                     <Outlet />
                 </div>
             </section>
+
+            <Toast type='success' title='Post created 🎉' content='Your post has been published successfully.'/>
 
         </main>
     )

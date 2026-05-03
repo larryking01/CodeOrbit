@@ -27,6 +27,9 @@ const AddPost = () => {
     const currentUser = useSelector(getCurrentUser)
 
 
+    let canSave = [title, content].every(el => el.trim() !== '')
+
+
     const handleTitleChange = (event) => {
         setTitle( event.target.value )
     }
@@ -39,6 +42,7 @@ const AddPost = () => {
 
     const submitPost = async (event) => {
         event.preventDefault()
+        console.log("post submitted")
         let postPayload = {
             id: nanoid(5),    
             title,
@@ -83,7 +87,9 @@ const AddPost = () => {
                     <textarea rows={ 8 } name='post-content' className={ styles.addPost__textarea } value={ content } onChange={ handleContentChange }></textarea>
                 </div>
 
-                <button type='submit' className={ styles.addPost__button }>Create</button>
+                <button type='submit' className={ styles.addPost__button } disabled={!canSave}>
+                    Create
+                </button>
             </form>
         </main>
     )
