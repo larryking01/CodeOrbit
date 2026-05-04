@@ -9,11 +9,12 @@ import toastReducer from './features/toast/toast.sclice'
 
 
 const store = configureStore({
+    
     reducer: {
         posts: postsReducer,
         users: usersReducer,
         comments: commentsReducer,
-        toast: toastReducer
+        toast: toastReducer,
     }
 })
 

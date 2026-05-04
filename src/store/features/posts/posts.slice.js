@@ -1,5 +1,5 @@
-import { createSlice, current } from "@reduxjs/toolkit";
-import { fetchPosts, createPost, deletePostAsync, updatePostLikesAsync } from "./posts.thunks";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchPosts, createPostAsync, deletePostAsync, updatePostLikesAsync } from "./posts.thunks";
 
 
 
@@ -64,17 +64,17 @@ const postsSlice = createSlice({
                 state.loading = 'failed'
             })
 
-            .addCase(createPost.pending, (state) => {
+            .addCase(createPostAsync.pending, (state) => {
                 state.loading = 'loading'
             })
 
-            .addCase(createPost.fulfilled, (state, action) => {
+            .addCase(createPostAsync.fulfilled, (state, action) => {
                 const createdPost = action.payload
                 delete state.temporaryPostsStore[createdPost.id]
                 state.loading = 'successful'
             })
 
-            .addCase(createPost.rejected, (state, action) => {
+            .addCase(createPostAsync.rejected, (state, action) => {
                 let failedPost = action.meta.arg
                 let filteredPosts = state.posts.filter( post => post.id !== failedPost.id )
                 state.posts = filteredPosts
@@ -109,7 +109,7 @@ const postsSlice = createSlice({
 
             .addCase(updatePostLikesAsync.rejected, (state, action) => {
                 let failedUpdate = action.error
-                console.log("failed to update post")
+                console.log("failed to update post: ", failedUpdate)
             })
     }
 })
