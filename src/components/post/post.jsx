@@ -19,7 +19,7 @@ import { selectPostLikedStatus, selectPostBookmarkedStatus, selectPostById } fro
 import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
 import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
 
-
+import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 
 
 
@@ -56,12 +56,31 @@ const Post = ({ post }) => {
     // delete a post by its id
     const handleDeletePost = async (post) => {
         try {
-            dispatch(deletePost(post))
+            dispatch(deletePost(post))   // optimistic
             await dispatch(deletePostAsync(post)).unwrap()
+            dispatch(showToast({
+                type: 'success',
+                title: 'Post deleted 🎉',
+                content: 'Your post has been removed and is no longer visible.'
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
+
             navigate('/')
         }
         catch(error) {
-            // handle error later
+            dispatch(showToast({
+                type: 'error',
+                title: 'Failed to delete post',
+                content: 'We couldn’t delete your post right now. Please try again.'
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
+
             navigate('/')        
         }
     }
@@ -87,8 +106,15 @@ const Post = ({ post }) => {
             await dispatch(updatePostLikesAsync(nextPost)).unwrap()
         }
         catch(error) {
-            // handle error later 
-            console.log("error updating posts like feature: ", error)
+            dispatch(showToast({
+                type: 'error',
+                title: 'Update failed.',
+                content: "We couldn’t save your reaction. Your previous state has been restored."
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
         }
     }
 
@@ -100,11 +126,16 @@ const Post = ({ post }) => {
             dispatch(updatePostBookmarks(postId))
         }
         catch(error) {
-            // handle error later 
-            console.log("error updating posts bookmark feature: ", error)
-        }
+            dispatch(showToast({
+                type: 'error',
+                title: 'Update failed.',
+                content: "We couldn’t save your reaction. Your previous state has been restored."
+            }))
 
-        
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
+        }
     }
 
     

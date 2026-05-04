@@ -49,7 +49,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (_, thunkAp
 
 
 
-export const createPost = createAsyncThunk('posts/createPost', async (post, thunkApi) => {
+export const createPostAsync = createAsyncThunk('posts/createPostAsync', async (post, thunkApi) => {
     let endpoint = `${ api_url }/posts` 
 
     // initialize abort controller to force fetch operation to terminate after 5 seconds.

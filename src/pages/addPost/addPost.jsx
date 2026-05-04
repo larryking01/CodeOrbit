@@ -5,7 +5,8 @@ import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 
 import { addNewPost } from '../../store/features/posts/posts.slice'
-import { createPost } from '../../store/features/posts/posts.thunks'
+import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
+import { createPostAsync } from '../../store/features/posts/posts.thunks'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
 
 
@@ -25,6 +26,9 @@ const AddPost = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const currentUser = useSelector(getCurrentUser)
+
+
+    let canSave = [title, content].every(el => el.trim() !== '')
 
 
     const handleTitleChange = (event) => {
@@ -55,12 +59,33 @@ const AddPost = () => {
         }
 
         try {
-            dispatch(addNewPost(postPayload))
-            await dispatch(createPost( postPayload )).unwrap()
+            dispatch(addNewPost(postPayload))    // optimistic
+
+            await dispatch(createPostAsync( postPayload )).unwrap()
+
+            dispatch(showToast({
+                type: 'success',
+                title: 'Post published 🎉',
+                content: 'Your post is now live and visible to others.'
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
+
             navigate('/')       
         }
         catch( error ) {
-            alert(error.message)
+            dispatch(showToast({
+                type: 'error',
+                title: 'Failed to publish post',
+                content: "We couldn’t publish your post. Check your connection and try again."
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
+
             navigate('/')       
         }
     }
@@ -83,7 +108,9 @@ const AddPost = () => {
                     <textarea rows={ 8 } name='post-content' className={ styles.addPost__textarea } value={ content } onChange={ handleContentChange }></textarea>
                 </div>
 
-                <button type='submit' className={ styles.addPost__button }>Create</button>
+                <button type='submit' className={ styles.addPost__button } disabled={!canSave}>
+                    Create
+                </button>
             </form>
         </main>
     )

@@ -18,7 +18,6 @@ const commentSlice = createSlice({
     reducers: {
         createComment(state, action) {
             let comment = action.payload 
-            console.log("new comment = ", comment)
             state.temporaryCommentsStore[comment.id] = comment
             state.comments.push(comment)
         }

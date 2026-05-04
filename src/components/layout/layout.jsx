@@ -1,8 +1,12 @@
 import styles from './layout.module.scss'
 import { Outlet } from "react-router-dom"
+import { useSelector } from 'react-redux'
 
 import Navbar from "../navbar/navbar"
 import Sidebar from "../sidebar/sidebar"
+import Toast from '../toasts/toast'
+
+import { selectToastVisibility } from '../../store/features/toast/toast.selectors'
 
 
 
@@ -12,6 +16,9 @@ import Sidebar from "../sidebar/sidebar"
 
 
 const Layout = () => {
+
+
+    let visible = useSelector( selectToastVisibility )
 
 
     
@@ -25,6 +32,8 @@ const Layout = () => {
                     <Outlet />
                 </div>
             </section>
+
+            { visible && <Toast /> }
 
         </main>
     )

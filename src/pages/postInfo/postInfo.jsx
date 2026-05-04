@@ -11,7 +11,7 @@ import Post from '../../components/post/post'
 import Comment from '../../components/comment/comment'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
 
-
+import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
 
 
 
@@ -44,10 +44,27 @@ const PostInfo = () => {
         try {
             dispatch(createComment(commentPayload))
             await dispatch(createCommentAsync(commentPayload)).unwrap()
+
+            dispatch(showToast({
+                type: 'success',
+                title: 'Comment posted 💬',
+                content: "Your comment is now visible to others."
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
         }
         catch(error) {
-            // handle error later
-            console.log("error adding new comment", error)
+            dispatch(showToast({
+                type: 'error',
+                title: 'Failed to post comment.',
+                content: "We couldn’t add your comment. Check your connection and try again."
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
         }
 
     }
