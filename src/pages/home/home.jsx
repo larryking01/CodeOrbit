@@ -18,10 +18,6 @@ const Home = () => {
     const postsCount = useSelector( selectNumberOfPosts )
     const loadingStatus = useSelector( selectPostLoadingStatus )
 
-    useEffect(() => {
-        console.log("loading status = ", loadingStatus)
-        
-    }, [loadingStatus])
 
     const renderedPosts = posts.map( post => (
         <Post post={ post } key={ post.id }/>

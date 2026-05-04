@@ -106,8 +106,15 @@ const Post = ({ post }) => {
             await dispatch(updatePostLikesAsync(nextPost)).unwrap()
         }
         catch(error) {
-            // handle error later 
-            console.log("error updating posts like feature: ", error)
+            dispatch(showToast({
+                type: 'error',
+                title: 'Update failed.',
+                content: "We couldn’t save your reaction. Your previous state has been restored."
+            }))
+
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
         }
     }
 
@@ -119,11 +126,16 @@ const Post = ({ post }) => {
             dispatch(updatePostBookmarks(postId))
         }
         catch(error) {
-            // handle error later 
-            console.log("error updating posts bookmark feature: ", error)
-        }
+            dispatch(showToast({
+                type: 'error',
+                title: 'Update failed.',
+                content: "We couldn’t save your reaction. Your previous state has been restored."
+            }))
 
-        
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
+        }
     }
 
     

@@ -20,15 +20,6 @@ const Toast = () => {
 
     const content = useSelector( selectToastContent )
 
-
-    useEffect(() => {
-        console.log("toast visible = ", visible)
-        console.log("toast type = ", type)
-        console.log("toast title = ", title)
-        console.log("toast content = ", content)
-        
-    },[ visible, title, type, content])
-
     
 
     return (

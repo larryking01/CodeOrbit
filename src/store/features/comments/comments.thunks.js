@@ -63,10 +63,6 @@ export const createCommentAsync = createAsyncThunk('comments/createComment', asy
 
 
     try{
-        if(comment.content === 'Testing') {
-            throw new Error("Forced comment creation failure")
-        }
-
         let response = await fetch(`${ api_url }/comments`, {
             method: 'POST',
             body: JSON.stringify( comment ),
