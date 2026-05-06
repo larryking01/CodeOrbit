@@ -10,7 +10,7 @@ export const selectAllComments = (state) => {
 }
 
 
-// memoize selector to prevent unnecessary re-renders
+// memoize selector to prevent unnecessary re-renders.
 export const selectCommentByPostId = createSelector(
     [
         selectAllComments,
@@ -23,7 +23,7 @@ export const selectCommentByPostId = createSelector(
 )
 
 
-// memoize selector to prevent unnecessary re-renders
+// memoize selector to prevent unnecessary re-renders.
 export const selectNumberOfComments = createSelector(
     [
         selectAllComments,
