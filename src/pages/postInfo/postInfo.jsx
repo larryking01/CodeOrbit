@@ -66,6 +66,9 @@ const PostInfo = () => {
                 dispatch(clearToast())
             }, 4000)
         }
+        finally {
+            setContent('')
+        }
 
     }
 
