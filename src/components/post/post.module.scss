@@ -21,6 +21,17 @@
   justify-content: space-between;
 }
 
+.postCard__link {
+  background-color: $navbar-bg;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .postCard__readMore {
   cursor: pointer;
   color: $purple-col;

@@ -146,12 +146,12 @@ const Post = ({ post }) => {
                 <PostAuthor userId={post.userId} />
 
                 {showReadText ? (
-                <Link to={`post-info/${post.id}`} className="link">
+                <Link to={`post-info/${post.id}`} className={`${ styles.postCard__link } link`}>
                     <p className={styles.postCard__readMore}>Read</p>
                 </Link>
                 ) : (
                 <p
-                    className={styles.postCard__readMore}
+                    className={`${styles.postCard__readMore} ${styles.postCard__link}`}
                     onClick={() => handleDeletePost(post)}
                 >
                     <MdDelete size={20} />
