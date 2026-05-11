@@ -43,8 +43,8 @@ const apiSlice = createApi({
             })
         }),
         // comments endpoints
-        getComments: builder.query({
-            query: () => '/comments'
+        getCommentsByPostId: builder.query({
+            query: (postId) => `/comments?postId=${ postId }`
         }),
         createComment: builder.mutation({
             query: (comment) => ({
@@ -69,7 +69,7 @@ export const {
     useCreatePostMutation,
     useDeletePostMutation,
     useUpdatePostLikesMutation,
-    useGetCommentsQuery,
+    useGetCommentsByPostIdQuery,
     useCreateCommentMutation,
     useGetUsersQuery
     

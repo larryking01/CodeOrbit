@@ -1,6 +1,6 @@
 import styles from './postInfo.module.scss'
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
 import { useGetPostQuery } from '../../store/features/api/apiSlice'
@@ -31,7 +31,7 @@ const PostInfo = () => {
     const { data: post, isLoading, error } = useGetPostQuery( postId )
 
 
-    
+
 
     const handleContentChange = (event) => {
         setContent( event.target.value )
