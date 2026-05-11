@@ -1,17 +1,19 @@
 import styles from './postInfo.module.scss'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
-
-import { selectPostById } from '../../store/features/posts/posts.selectors'
+import { useGetPostQuery } from '../../store/features/api/apiSlice'
 import { createComment } from '../../store/features/comments/comments.slice'
 import { createCommentAsync } from '../../store/features/comments/comments.thunks'
 import Post from '../../components/post/post'
 import Comment from '../../components/comment/comment'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
-
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
+import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
+
+
+
 
 
 
@@ -19,11 +21,17 @@ import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
 const PostInfo = () => {
 
     const dispatch = useDispatch()
+
     const { postId } = useParams()
-    const post = useSelector(state => selectPostById(state, postId))
+
     const currentUser = useSelector(getCurrentUser)
+
     const [content, setContent] = useState('')
 
+    const { data: post, isLoading, error } = useGetPostQuery( postId )
+
+
+    
 
     const handleContentChange = (event) => {
         setContent( event.target.value )
@@ -73,34 +81,37 @@ const PostInfo = () => {
     }
 
 
-    let renderedPost = post ? 
-        <article className={styles.postInfo}>
-            <Post post={post} />
+    let renderedPost = isLoading ? 
+        <LoadingIndicator />
+        :
+        post ?
+            <article className={styles.postInfo}>
+                <Post post={post} />
 
-            <section className={styles.postInfo__comments}>
-                <div className={styles.postInfo__addCommentContainer}>
-                    <form onSubmit={postComment}>
-                        <textarea
-                            rows={4}
-                            className={styles.postInfo__addCommentInput}
-                            placeholder="Add a comment"
-                            value={content}
-                            onChange={handleContentChange}
-                        ></textarea>
+                <section className={styles.postInfo__comments}>
+                    <div className={styles.postInfo__addCommentContainer}>
+                        <form onSubmit={postComment}>
+                            <textarea
+                                rows={4}
+                                className={styles.postInfo__addCommentInput}
+                                placeholder="Add a comment"
+                                value={content}
+                                onChange={handleContentChange}
+                            ></textarea>
 
-                        <button type="submit" className={styles.postInfo__button}>
-                            Post comment
-                        </button>
-                    </form>
-                </div>
+                            <button type="submit" className={styles.postInfo__button}>
+                                Post comment
+                            </button>
+                        </form>
+                    </div>
 
-                <Comment postId={postId} />
-            </section>
-        </article>
-        : 
-        <article className={styles.postInfo__noPost}>
-            <p>Sorry, we could not find the post you were looking for...</p>
-        </article>
+                    <Comment postId={postId} />
+                </section>
+            </article>
+            : 
+            <article className={styles.postInfo__noPost}>
+                <p>Sorry, we could not find the post you were looking for...</p>
+            </article>
     
 
     return (

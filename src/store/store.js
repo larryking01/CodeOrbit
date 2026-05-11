@@ -18,7 +18,6 @@ const store = configureStore({
         users: usersReducer,
         comments: commentsReducer,
         toast: toastReducer,
-
         [apiSlice.reducerPath]: apiSlice.reducer
     },
     middleware: (getDefaultMiddleware) => {
