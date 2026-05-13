@@ -13,7 +13,7 @@ import { useGetCommentsByPostIdQuery } from '../../store/features/api/apiSlice'
 const Comment = ({ postId }) => {
 
 
-    const { data: comments = [], isLoading, error } = useGetCommentsByPostIdQuery( postId )
+    const { data: comments = [] } = useGetCommentsByPostIdQuery( postId )
 
     let renderedComments = comments.length > 0 ?
         comments.map( comment => (

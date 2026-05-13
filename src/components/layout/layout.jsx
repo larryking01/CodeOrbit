@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import Navbar from "../navbar/navbar"
 import Sidebar from "../sidebar/sidebar"
 import Toast from '../toasts/toast'
-
 import { selectToastVisibility } from '../../store/features/toast/toast.selectors'
 
 
@@ -15,8 +14,9 @@ import { selectToastVisibility } from '../../store/features/toast/toast.selector
 
 
 
-const Layout = () => {
 
+
+const Layout = () => {
 
     let visible = useSelector( selectToastVisibility )
 

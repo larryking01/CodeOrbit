@@ -14,7 +14,7 @@ import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator
 const Home = () => {
 
 
-    const { data: posts = [], isLoading, isError } = useGetPostsQuery()
+    const { data: posts = [], isLoading } = useGetPostsQuery()
 
     const renderedPosts = posts.map( post => (
         <Post post={ post } key={ post.id }/>

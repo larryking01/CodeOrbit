@@ -3,15 +3,13 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
-import { useGetPostQuery } from '../../store/features/api/apiSlice'
-import { createComment } from '../../store/features/comments/comments.slice'
-import { createCommentAsync } from '../../store/features/comments/comments.thunks'
+
+import { useGetPostQuery, useCreateCommentMutation } from '../../store/features/api/apiSlice'
 import Post from '../../components/post/post'
 import Comment from '../../components/comment/comment'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
 import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
-import { useCreateCommentMutation } from '../../store/features/api/apiSlice'
 
 
 
@@ -31,7 +29,7 @@ const PostInfo = () => {
 
     const [content, setContent] = useState('')
 
-    const { data: post, isLoading, error } = useGetPostQuery( postId )
+    const { data: post, isLoading } = useGetPostQuery( postId )
 
     const [ triggerCreateCommentMutation ] = useCreateCommentMutation()
 
@@ -55,9 +53,7 @@ const PostInfo = () => {
         }
 
         try {
-            let createdComment = await triggerCreateCommentMutation(commentPayload).unwrap()
-
-            console.log("created comment = ", createdComment)
+            await triggerCreateCommentMutation(commentPayload).unwrap()
 
             dispatch(showToast({
                 type: 'success',

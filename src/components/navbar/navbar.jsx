@@ -16,10 +16,9 @@ import { getCurrentUser } from '../../store/features/users/users.selectors';
 
 
 
+
 const Navbar = () => {
 
-
-    
     const currentUser = useSelector(getCurrentUser)
 
 

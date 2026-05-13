@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
-
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
 import { IoMdBookmark } from "react-icons/io";
@@ -11,16 +10,11 @@ import { GoBookmark } from "react-icons/go";
 import { AiOutlineComment } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-
 import PostAuthor from '../postAuthor/postAuthor';
-import { deletePostAsync } from '../../store/features/posts/posts.thunks';
-import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
+import { updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
 import { selectPostLikedStatus, selectPostBookmarkedStatus } from '../../store/features/posts/posts.selectors';
-import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
 import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
-
 import { useGetPostQuery, useGetCommentsByPostIdQuery, useDeletePostMutation } from '../../store/features/api/apiSlice';
-
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 
 
@@ -60,7 +54,7 @@ const Post = ({ post }) => {
         else {
             setShowReadText( false )
         }
-        
+
     },[showReadText, location])
 
 
@@ -68,13 +62,7 @@ const Post = ({ post }) => {
     // delete a post by its id
     const handleDeletePost = async (post) => {
         try {
-            // dispatch(deletePost(post))   // optimistic
-            // await dispatch(deletePostAsync(post)).unwrap()
-
-            const deletedPost = await triggerDeletePostMutation(post.id)
-
-            console.log("post deleted = ", deletedPost)
-
+            await triggerDeletePostMutation(post.id)
 
             dispatch(showToast({
                 type: 'success',

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
-
 import { useCreatePostMutation } from '../../store/features/api/apiSlice'
 
 
@@ -64,13 +63,7 @@ const AddPost = () => {
         }
 
         try {
-            // dispatch(addNewPost(postPayload))    // optimistic
-
-            // await dispatch(createPostAsync( postPayload )).unwrap()
-
-            let createdPost = await triggerCreatePost(postPayload).unwrap()
-
-            console.log("created post is ", createdPost)
+            await triggerCreatePost(postPayload).unwrap()
 
             dispatch(showToast({
                 type: 'success',

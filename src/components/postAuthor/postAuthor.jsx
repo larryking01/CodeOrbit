@@ -12,8 +12,6 @@ import { selectPostAuthor } from "../../store/features/users/users.selectors"
 
 const PostAuthor = ({ userId }) => {
 
-
-
     const author = useSelector(state => selectPostAuthor(state, userId ))
 
     let postAuthor = author ?
