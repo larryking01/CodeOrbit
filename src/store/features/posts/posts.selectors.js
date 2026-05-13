@@ -12,6 +12,9 @@ export const selectNumberOfPosts = (state) => state.posts.posts.length
 
 export const selectPostLikedStatus = (state, postId) => {
     let selectedPost = state.posts.posts.find( post => post.id === postId )
+
+    if(!selectedPost) return false 
+
     let isLiked = selectedPost.reactions.isLiked 
     return isLiked
 }
@@ -19,6 +22,9 @@ export const selectPostLikedStatus = (state, postId) => {
 
 export const selectPostBookmarkedStatus = (state, postId) => {
     let selectedPost = state.posts.posts.find( post => post.id === postId )
+
+    if(!selectedPost) return false
+
     let isBookmarked = selectedPost.reactions.isBookmarked 
     return isBookmarked
 }

@@ -1,9 +1,5 @@
 import styles from './navbar.module.scss'
 import { useSelector } from 'react-redux';
-
-
-import { IoAddCircleOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
@@ -17,9 +13,13 @@ import { getCurrentUser } from '../../store/features/users/users.selectors';
 
 
 
+
+
+
 const Navbar = () => {
 
 
+    
     const currentUser = useSelector(getCurrentUser)
 
 
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </div>
 
                 <div className={styles.navbar__avatar}>
-                    <img src={ currentUser.avatar } />
+                    <img src={ currentUser.avatar } alt="profile" />
                 </div>
 
                 <div className={styles.navbar__userInfo}>

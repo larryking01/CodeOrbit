@@ -4,6 +4,10 @@ import { setCurrentUser } from "../../../helpers/getRandomUser";
 
 
 
+
+
+
+
 const usersSlice = createSlice({
     name: 'users',
     initialState: {
@@ -12,9 +16,7 @@ const usersSlice = createSlice({
         currentUser: {},
         error: null
     },
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder 
             .addCase(fetchUsers.pending, (state) => {

@@ -13,10 +13,12 @@ const api_url = 'http://localhost:8000'
 const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: api_url, timeout: 7000 }),
+    tagTypes: ['Posts', 'Comments', 'Users'],
     endpoints: (builder) => ({
         // posts endpoints
         getPosts: builder.query({
-            query: () => '/posts'
+            query: () => '/posts',
+            providesTags: ['Posts']
         }),
         getPost: builder.query({
             query: (id) => `/posts/${ id }`
@@ -26,14 +28,16 @@ const apiSlice = createApi({
                 url: '/posts',
                 method: 'POST',
                 body: post
-            })
+            }),
+            invalidatesTags: ['Posts']
         }),
         deletePost: builder.mutation({
-            query: (post) => ({
-                url: `/posts/${ post.id }`,
+            query: (id) => ({
+                url: `/posts/${ id }`,
                 method: 'DELETE',
-                body: post.id
-            })
+                body: JSON.stringify(id)
+            }),
+            invalidatesTags: ['Posts']
         }),
         updatePostLikes: builder.mutation({
             query: (post) => ({
@@ -44,16 +48,18 @@ const apiSlice = createApi({
         }),
         // comments endpoints
         getCommentsByPostId: builder.query({
-            query: (postId) => `/comments?postId=${ postId }`
+            query: (postId) => `/comments?postId=${ postId }`,
+            providesTags: ['Comments']
         }),
         createComment: builder.mutation({
             query: (comment) => ({
                 url: '/comments',
                 method: 'POST',
                 body: comment
-            })
+            }),
+            invalidatesTags: ['Comments']
         }),
-        // users thunks
+        // users endpoints
         getUsers: builder.query({
             query: () => '/users'
         })
@@ -74,5 +80,6 @@ export const {
     useGetUsersQuery
     
 } = apiSlice
+
 
 export default apiSlice

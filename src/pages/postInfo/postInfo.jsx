@@ -11,6 +11,9 @@ import Comment from '../../components/comment/comment'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
 import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
+import { useCreateCommentMutation } from '../../store/features/api/apiSlice'
+
+
 
 
 
@@ -30,6 +33,8 @@ const PostInfo = () => {
 
     const { data: post, isLoading, error } = useGetPostQuery( postId )
 
+    const [ triggerCreateCommentMutation ] = useCreateCommentMutation()
+
 
 
 
@@ -44,14 +49,15 @@ const PostInfo = () => {
         let commentPayload = {
             id: nanoid(5),
             content,
-            postId,
+            postId: postId,
             userId: currentUser.id,
             createdAt: new Date().toISOString()
         }
 
         try {
-            dispatch(createComment(commentPayload))
-            await dispatch(createCommentAsync(commentPayload)).unwrap()
+            let createdComment = await triggerCreateCommentMutation(commentPayload).unwrap()
+
+            console.log("created comment = ", createdComment)
 
             dispatch(showToast({
                 type: 'success',
@@ -59,9 +65,6 @@ const PostInfo = () => {
                 content: "Your comment is now visible to others."
             }))
 
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
         }
         catch(error) {
             dispatch(showToast({
@@ -69,13 +72,12 @@ const PostInfo = () => {
                 title: 'Failed to post comment.',
                 content: "We couldn’t add your comment. Check your connection and try again."
             }))
-
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
         }
         finally {
             setContent('')
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
         }
 
     }

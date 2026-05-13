@@ -15,11 +15,18 @@ import { MdDelete } from "react-icons/md";
 import PostAuthor from '../postAuthor/postAuthor';
 import { deletePostAsync } from '../../store/features/posts/posts.thunks';
 import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
-import { selectPostLikedStatus, selectPostBookmarkedStatus, selectPostById } from '../../store/features/posts/posts.selectors';
+import { selectPostLikedStatus, selectPostBookmarkedStatus } from '../../store/features/posts/posts.selectors';
 import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
 import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
 
+import { useGetPostQuery, useGetCommentsByPostIdQuery, useDeletePostMutation } from '../../store/features/api/apiSlice';
+
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
+
+
+
+
+
 
 
 
@@ -27,17 +34,22 @@ import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 const Post = ({ post }) => {
 
     const [showReadText, setShowReadText] = useState( true )
-    const [ currentPost, setCurrentPost ] = useState()
+     
     const location = useLocation()
+    
     const dispatch = useDispatch()
+
     const navigate = useNavigate()
 
     const isLiked = useSelector(state => selectPostLikedStatus(state, post.id))
+
     const isBookmarked = useSelector(state => selectPostBookmarkedStatus(state, post.id))
 
-    const numberOfComments = useSelector(state => selectNumberOfComments(state, post.id))
+    const { data: selectedPost } = useGetPostQuery(post.id)
 
-    const updatedPost = useSelector(state => selectPostById(state, post.id))
+    const { data: comments = [] } = useGetCommentsByPostIdQuery(post.id)
+
+    const [triggerDeletePostMutation] = useDeletePostMutation()
 
 
     // show "Read" or "Delete" action on post based on current route
@@ -48,7 +60,7 @@ const Post = ({ post }) => {
         else {
             setShowReadText( false )
         }
-
+        
     },[showReadText, location])
 
 
@@ -56,17 +68,19 @@ const Post = ({ post }) => {
     // delete a post by its id
     const handleDeletePost = async (post) => {
         try {
-            dispatch(deletePost(post))   // optimistic
-            await dispatch(deletePostAsync(post)).unwrap()
+            // dispatch(deletePost(post))   // optimistic
+            // await dispatch(deletePostAsync(post)).unwrap()
+
+            const deletedPost = await triggerDeletePostMutation(post.id)
+
+            console.log("post deleted = ", deletedPost)
+
+
             dispatch(showToast({
                 type: 'success',
                 title: 'Post deleted 🎉',
                 content: 'Your post has been removed and is no longer visible.'
             }))
-
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
 
             navigate('/')
         }
@@ -76,12 +90,11 @@ const Post = ({ post }) => {
                 title: 'Failed to delete post',
                 content: 'We couldn’t delete your post right now. Please try again.'
             }))
-
+        }
+        finally {
             setTimeout(() => {
                 dispatch(clearToast())
             }, 4000)
-
-            navigate('/')        
         }
     }
 
@@ -176,7 +189,14 @@ const Post = ({ post }) => {
                                 <IoMdHeartEmpty size={22} />
                             </p>
                     }
-                    <p className={styles.postCard__iconCount}>{updatedPost.reactions.numberOfLikes}</p>
+                    <p className={styles.postCard__iconCount}>{selectedPost?.reactions.numberOfLikes}</p>
+                </div>
+
+                <div className={styles.postCard__iconContainer}>
+                    <p className={styles.postCard__iconWrapper}>
+                        <AiOutlineComment size={20} />
+                    </p>
+                    <p className={styles.postCard__iconCount}>{ comments.length }</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
@@ -190,14 +210,7 @@ const Post = ({ post }) => {
                                 <GoBookmark size={20} />
                             </p>
                     }
-                    <p className={styles.postCard__iconCount}>{updatedPost.reactions.numberOfBookmarks}</p>
-                </div>
-
-                <div className={styles.postCard__iconContainer}>
-                    <p className={styles.postCard__iconWrapper}>
-                        <AiOutlineComment size={20} />
-                    </p>
-                    <p className={styles.postCard__iconCount}>{ numberOfComments }</p>
+                    <p className={styles.postCard__iconCount}>{selectedPost?.reactions.numberOfBookmarks}</p>
                 </div>
 
                 <div className={styles.postCard__dateContainer}>

@@ -10,7 +10,6 @@ import { useGetCommentsByPostIdQuery } from '../../store/features/api/apiSlice'
 
 
 
-
 const Comment = ({ postId }) => {
 
 

@@ -4,12 +4,10 @@ import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 
-import { addNewPost } from '../../store/features/posts/posts.slice'
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
-import { createPostAsync } from '../../store/features/posts/posts.thunks'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
 
-
+import { useCreatePostMutation } from '../../store/features/api/apiSlice'
 
 
 
@@ -21,11 +19,18 @@ import { getCurrentUser } from '../../store/features/users/users.selectors'
 const AddPost = () => {
 
     const [title, setTitle] = useState('')
+
     const [content, setContent] = useState('')
 
     const dispatch = useDispatch()
+
     const navigate = useNavigate()
+
     const currentUser = useSelector(getCurrentUser)
+
+    const [triggerCreatePost] = useCreatePostMutation()
+
+
 
 
     let canSave = [title, content].every(el => el.trim() !== '')
@@ -59,19 +64,19 @@ const AddPost = () => {
         }
 
         try {
-            dispatch(addNewPost(postPayload))    // optimistic
+            // dispatch(addNewPost(postPayload))    // optimistic
 
-            await dispatch(createPostAsync( postPayload )).unwrap()
+            // await dispatch(createPostAsync( postPayload )).unwrap()
+
+            let createdPost = await triggerCreatePost(postPayload).unwrap()
+
+            console.log("created post is ", createdPost)
 
             dispatch(showToast({
                 type: 'success',
                 title: 'Post published 🎉',
                 content: 'Your post is now live and visible to others.'
             }))
-
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
 
             navigate('/')       
         }
@@ -81,12 +86,11 @@ const AddPost = () => {
                 title: 'Failed to publish post',
                 content: "We couldn’t publish your post. Check your connection and try again."
             }))
-
+        }
+        finally {
             setTimeout(() => {
                 dispatch(clearToast())
             }, 4000)
-
-            navigate('/')       
         }
     }
 
@@ -99,12 +103,12 @@ const AddPost = () => {
 
             <form onSubmit={ submitPost } className={ styles.addPost__form }>
                 <div className={ styles['addPost__input-container'] }>
-                    <label for='post-title' className={ styles.addPost__label }>Title</label>
+                    <label htmlFor='post-title' className={ styles.addPost__label }>Title</label>
                     <input type='text' name='post-title' className={ styles.addPost__input } value={ title } onChange={ handleTitleChange } />
                 </div>
 
                 <div className={ styles['addPost__input-container'] }>
-                    <label for='post-content' className={ styles.addPost__label }>Content</label>
+                    <label htmlFor='post-content' className={ styles.addPost__label }>Content</label>
                     <textarea rows={ 8 } name='post-content' className={ styles.addPost__textarea } value={ content } onChange={ handleContentChange }></textarea>
                 </div>
 
