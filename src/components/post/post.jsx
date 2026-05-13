@@ -16,6 +16,7 @@ import { selectPostLikedStatus, selectPostBookmarkedStatus } from '../../store/f
 import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
 import { useGetPostQuery, useGetCommentsByPostIdQuery, useDeletePostMutation } from '../../store/features/api/apiSlice';
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
+import { shortenTextLength } from '../../helpers/shortenTextLength';
 
 
 
@@ -28,6 +29,8 @@ import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 const Post = ({ post }) => {
 
     const [showReadText, setShowReadText] = useState( true )
+
+    const [shortenPostContent, setShortenPostContent] = useState(true)
      
     const location = useLocation()
     
@@ -50,9 +53,11 @@ const Post = ({ post }) => {
     useEffect(() => {
         if(location.pathname === '/') {
             setShowReadText( true )
+            setShortenPostContent( true )
         }
         else {
             setShowReadText( false )
+            setShortenPostContent( false )
         }
 
     },[showReadText, location])
@@ -162,7 +167,9 @@ const Post = ({ post }) => {
 
             <section className={styles.postCard__details}>
                 <h3 className={styles.postCard__title}>{post.title}</h3>
-                <p className={styles.postCard__content}>{post.content}</p>
+                <p className={styles.postCard__content}>
+                    { shortenPostContent ? shortenTextLength(post.content) : post.content }
+                </p>
             </section>
 
             <section className={styles.postCard__metadata}>
