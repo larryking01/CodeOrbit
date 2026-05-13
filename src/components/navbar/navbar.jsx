@@ -28,7 +28,7 @@ const Navbar = () => {
 
         <nav className={styles.navbar}>
             <div className={styles.navbar__display}>
-                <h3 className={styles.navbar__title}>Create Post</h3>
+                <h3 className={styles.navbar__title}></h3>
             </div>
 
             <div className={styles.navbar__profile}>

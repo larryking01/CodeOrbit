@@ -5,6 +5,7 @@ import Layout from './components/layout/layout';
 import Home from './pages/home/home';
 import PostInfo from './pages/postInfo/postInfo';
 import AddPost from './pages/addPost/addPost';
+import ConfirmationModal from './components/confirmationModal/confirmationModal';
 
 import store from './store/store';
 import { fetchPosts } from './store/features/posts/posts.thunks';
@@ -27,6 +28,7 @@ function App() {
           <Route path="home" index element={ <Home /> } />
           <Route path="post-info/:postId" element={ <PostInfo /> } />
           <Route path="new-post" element={ <AddPost /> } />
+          <Route path="modal" element={ <ConfirmationModal /> } />
         </Route>
       </Routes>
     </Router>

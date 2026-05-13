@@ -6,7 +6,8 @@ import Navbar from "../navbar/navbar"
 import Sidebar from "../sidebar/sidebar"
 import Toast from '../toasts/toast'
 import { selectToastVisibility } from '../../store/features/toast/toast.selectors'
-
+import ConfirmationModal from '../confirmationModal/confirmationModal'
+import { selectModalVisibility } from '../../store/features/modal/modal.selectors'
 
 
 
@@ -20,8 +21,10 @@ const Layout = () => {
 
     let visible = useSelector( selectToastVisibility )
 
+    let modalVisible = useSelector( selectModalVisibility )
 
-    
+
+
     return (
         <main className={ styles.layout }>
             <Sidebar />
@@ -34,6 +37,8 @@ const Layout = () => {
             </section>
 
             { visible && <Toast /> }
+
+            { modalVisible && <ConfirmationModal />}
 
         </main>
     )
