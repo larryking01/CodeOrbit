@@ -1,7 +1,6 @@
 import styles from './comment.module.scss'
-import { useSelector } from 'react-redux'
-import { selectCommentByPostId, selectNumberOfComments } from '../../store/features/comments/comments.selectors'
 import CommentAuthor from '../commentAuthor/commentAuthor'
+import { useGetCommentsByPostIdQuery } from '../../store/features/api/apiSlice'
 
 
 
@@ -13,11 +12,10 @@ import CommentAuthor from '../commentAuthor/commentAuthor'
 
 const Comment = ({ postId }) => {
 
-    const comments = useSelector(state => selectCommentByPostId(state, postId ))
 
-    const commentsCount = useSelector(state => selectNumberOfComments(state, postId) )
+    const { data: comments = [] } = useGetCommentsByPostIdQuery( postId )
 
-    let renderedComments = commentsCount > 0 ?
+    let renderedComments = comments.length > 0 ?
         comments.map( comment => (
             <article className={styles['comment__comment-item']} key={ comment.id }>
                 <CommentAuthor userId={ comment.userId } />
@@ -34,8 +32,8 @@ const Comment = ({ postId }) => {
 
     return (
         <main className={ styles.comment }>
-            { commentsCount > 0 ? 
-                <h4>{ commentsCount } Comments</h4>  
+            { comments.length > 0 ? 
+                <h4>{ comments.length } Comments</h4>  
                 :
                 <h4>No available comments</h4>      
             }

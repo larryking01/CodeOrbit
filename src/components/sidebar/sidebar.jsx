@@ -13,12 +13,16 @@ import { IoHelp } from "react-icons/io5";
 
 
 
+
+
+
+
+
 const Sidebar = () => {
 
 
-
     return (
-        <main className={styles.sidebar}>
+        <aside className={styles.sidebar}>
             <section className={styles.sidebar__brand}>
                 <Link className="link" to="/">
                 <h3 className={styles.sidebar__brandTitle}>DevConnect</h3>
@@ -61,7 +65,7 @@ const Sidebar = () => {
                 <p className={styles.sidebar__navTitle}>Help</p>
                 </div>
             </section>
-        </main>
+        </aside>
     )
 }
 

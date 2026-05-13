@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
-
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
 import { IoMdBookmark } from "react-icons/io";
@@ -11,15 +10,18 @@ import { GoBookmark } from "react-icons/go";
 import { AiOutlineComment } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-
 import PostAuthor from '../postAuthor/postAuthor';
-import { deletePostAsync } from '../../store/features/posts/posts.thunks';
-import { deletePost, updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
-import { selectPostLikedStatus, selectPostBookmarkedStatus, selectPostById } from '../../store/features/posts/posts.selectors';
-import { selectNumberOfComments } from '../../store/features/comments/comments.selectors';
+import { updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
+import { selectPostLikedStatus, selectPostBookmarkedStatus } from '../../store/features/posts/posts.selectors';
 import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
-
+import { useGetPostQuery, useGetCommentsByPostIdQuery, useDeletePostMutation } from '../../store/features/api/apiSlice';
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
+import { shortenTextLength } from '../../helpers/shortenTextLength';
+
+
+
+
+
 
 
 
@@ -27,26 +29,35 @@ import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 const Post = ({ post }) => {
 
     const [showReadText, setShowReadText] = useState( true )
-    const [ currentPost, setCurrentPost ] = useState()
+
+    const [shortenPostContent, setShortenPostContent] = useState(true)
+     
     const location = useLocation()
+    
     const dispatch = useDispatch()
+
     const navigate = useNavigate()
 
     const isLiked = useSelector(state => selectPostLikedStatus(state, post.id))
+
     const isBookmarked = useSelector(state => selectPostBookmarkedStatus(state, post.id))
 
-    const numberOfComments = useSelector(state => selectNumberOfComments(state, post.id))
+    const { data: selectedPost } = useGetPostQuery(post.id)
 
-    const updatedPost = useSelector(state => selectPostById(state, post.id))
+    const { data: comments = [] } = useGetCommentsByPostIdQuery(post.id)
+
+    const [triggerDeletePostMutation] = useDeletePostMutation()
 
 
     // show "Read" or "Delete" action on post based on current route
     useEffect(() => {
         if(location.pathname === '/') {
             setShowReadText( true )
+            setShortenPostContent( true )
         }
         else {
             setShowReadText( false )
+            setShortenPostContent( false )
         }
 
     },[showReadText, location])
@@ -56,17 +67,13 @@ const Post = ({ post }) => {
     // delete a post by its id
     const handleDeletePost = async (post) => {
         try {
-            dispatch(deletePost(post))   // optimistic
-            await dispatch(deletePostAsync(post)).unwrap()
+            await triggerDeletePostMutation(post.id)
+
             dispatch(showToast({
                 type: 'success',
                 title: 'Post deleted 🎉',
                 content: 'Your post has been removed and is no longer visible.'
             }))
-
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
 
             navigate('/')
         }
@@ -76,12 +83,11 @@ const Post = ({ post }) => {
                 title: 'Failed to delete post',
                 content: 'We couldn’t delete your post right now. Please try again.'
             }))
-
+        }
+        finally {
             setTimeout(() => {
                 dispatch(clearToast())
             }, 4000)
-
-            navigate('/')        
         }
     }
 
@@ -146,12 +152,12 @@ const Post = ({ post }) => {
                 <PostAuthor userId={post.userId} />
 
                 {showReadText ? (
-                <Link to={`post-info/${post.id}`} className="link">
+                <Link to={`post-info/${post.id}`} className={`${ styles.postCard__link } link`}>
                     <p className={styles.postCard__readMore}>Read</p>
                 </Link>
                 ) : (
                 <p
-                    className={styles.postCard__readMore}
+                    className={`${styles.postCard__readMore} ${styles.postCard__link}`}
                     onClick={() => handleDeletePost(post)}
                 >
                     <MdDelete size={20} />
@@ -161,7 +167,9 @@ const Post = ({ post }) => {
 
             <section className={styles.postCard__details}>
                 <h3 className={styles.postCard__title}>{post.title}</h3>
-                <p className={styles.postCard__content}>{post.content}</p>
+                <p className={styles.postCard__content}>
+                    { shortenPostContent ? shortenTextLength(post.content) : post.content }
+                </p>
             </section>
 
             <section className={styles.postCard__metadata}>
@@ -176,7 +184,14 @@ const Post = ({ post }) => {
                                 <IoMdHeartEmpty size={22} />
                             </p>
                     }
-                    <p className={styles.postCard__iconCount}>{updatedPost.reactions.numberOfLikes}</p>
+                    <p className={styles.postCard__iconCount}>{selectedPost?.reactions.numberOfLikes}</p>
+                </div>
+
+                <div className={styles.postCard__iconContainer}>
+                    <p className={styles.postCard__iconWrapper}>
+                        <AiOutlineComment size={20} />
+                    </p>
+                    <p className={styles.postCard__iconCount}>{ comments.length }</p>
                 </div>
 
                 <div className={styles.postCard__iconContainer}>
@@ -190,14 +205,7 @@ const Post = ({ post }) => {
                                 <GoBookmark size={20} />
                             </p>
                     }
-                    <p className={styles.postCard__iconCount}>{updatedPost.reactions.numberOfBookmarks}</p>
-                </div>
-
-                <div className={styles.postCard__iconContainer}>
-                    <p className={styles.postCard__iconWrapper}>
-                        <AiOutlineComment size={20} />
-                    </p>
-                    <p className={styles.postCard__iconCount}>{ numberOfComments }</p>
+                    <p className={styles.postCard__iconCount}>{selectedPost?.reactions.numberOfBookmarks}</p>
                 </div>
 
                 <div className={styles.postCard__dateContainer}>

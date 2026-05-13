@@ -3,18 +3,25 @@ import postsReducer from './features/posts/posts.slice'
 import usersReducer from './features/users/users.slice'
 import commentsReducer from './features/comments/comments.slice'
 import toastReducer from './features/toast/toast.sclice'
+import apiSlice from "./features/api/apiSlice";
+
+
+
 
 
 
 
 
 const store = configureStore({
-    
     reducer: {
         posts: postsReducer,
         users: usersReducer,
         comments: commentsReducer,
         toast: toastReducer,
+        [apiSlice.reducerPath]: apiSlice.reducer
+    },
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware().concat(apiSlice.middleware)
     }
 })
 

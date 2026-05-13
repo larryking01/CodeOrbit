@@ -4,14 +4,17 @@ import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { selectPostById } from '../../store/features/posts/posts.selectors'
-import { createComment } from '../../store/features/comments/comments.slice'
-import { createCommentAsync } from '../../store/features/comments/comments.thunks'
+import { useGetPostQuery, useCreateCommentMutation } from '../../store/features/api/apiSlice'
 import Post from '../../components/post/post'
 import Comment from '../../components/comment/comment'
 import { getCurrentUser } from '../../store/features/users/users.selectors'
-
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
+import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
+
+
+
+
+
 
 
 
@@ -19,10 +22,18 @@ import { showToast, clearToast } from '../../store/features/toast/toast.sclice'
 const PostInfo = () => {
 
     const dispatch = useDispatch()
+
     const { postId } = useParams()
-    const post = useSelector(state => selectPostById(state, postId))
+
     const currentUser = useSelector(getCurrentUser)
+
     const [content, setContent] = useState('')
+
+    const { data: post, isLoading } = useGetPostQuery( postId )
+
+    const [ triggerCreateCommentMutation ] = useCreateCommentMutation()
+
+
 
 
     const handleContentChange = (event) => {
@@ -36,14 +47,13 @@ const PostInfo = () => {
         let commentPayload = {
             id: nanoid(5),
             content,
-            postId,
+            postId: postId,
             userId: currentUser.id,
             createdAt: new Date().toISOString()
         }
 
         try {
-            dispatch(createComment(commentPayload))
-            await dispatch(createCommentAsync(commentPayload)).unwrap()
+            await triggerCreateCommentMutation(commentPayload).unwrap()
 
             dispatch(showToast({
                 type: 'success',
@@ -51,9 +61,6 @@ const PostInfo = () => {
                 content: "Your comment is now visible to others."
             }))
 
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
         }
         catch(error) {
             dispatch(showToast({
@@ -61,46 +68,48 @@ const PostInfo = () => {
                 title: 'Failed to post comment.',
                 content: "We couldn’t add your comment. Check your connection and try again."
             }))
-
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
         }
         finally {
             setContent('')
+            setTimeout(() => {
+                dispatch(clearToast())
+            }, 4000)
         }
 
     }
 
 
-    let renderedPost = post ? 
-        <article className={styles.postInfo}>
-            <Post post={post} />
+    let renderedPost = isLoading ? 
+        <LoadingIndicator />
+        :
+        post ?
+            <article className={styles.postInfo}>
+                <Post post={post} />
 
-            <section className={styles.postInfo__comments}>
-                <div className={styles.postInfo__addCommentContainer}>
-                    <form onSubmit={postComment}>
-                        <textarea
-                            rows={4}
-                            className={styles.postInfo__addCommentInput}
-                            placeholder="Add a comment"
-                            value={content}
-                            onChange={handleContentChange}
-                        ></textarea>
+                <section className={styles.postInfo__comments}>
+                    <div className={styles.postInfo__addCommentContainer}>
+                        <form onSubmit={postComment}>
+                            <textarea
+                                rows={4}
+                                className={styles.postInfo__addCommentInput}
+                                placeholder="Add a comment"
+                                value={content}
+                                onChange={handleContentChange}
+                            ></textarea>
 
-                        <button type="submit" className={styles.postInfo__button}>
-                            Post comment
-                        </button>
-                    </form>
-                </div>
+                            <button type="submit" className={styles.postInfo__button}>
+                                Post comment
+                            </button>
+                        </form>
+                    </div>
 
-                <Comment postId={postId} />
-            </section>
-        </article>
-        : 
-        <article className={styles.postInfo__noPost}>
-            <p>Sorry, we could not find the post you were looking for...</p>
-        </article>
+                    <Comment postId={postId} />
+                </section>
+            </article>
+            : 
+            <article className={styles.postInfo__noPost}>
+                <p>Sorry, we could not find the post you were looking for...</p>
+            </article>
     
 
     return (

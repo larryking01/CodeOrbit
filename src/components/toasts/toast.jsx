@@ -1,18 +1,21 @@
 import styles from './toast.module.scss';
 import { AiOutlineClose } from "react-icons/ai";
-
 import { useSelector } from 'react-redux';
-import { selectToastVisibility, selectToastType, selectToastTitle, selectToastContent } from '../../store/features/toast/toast.selectors';
 
-import { useEffect } from 'react';
+import { selectToastType, selectToastTitle, selectToastContent } from '../../store/features/toast/toast.selectors';
+
+
+
+
+
+
+
+
 
 
 
 
 const Toast = () => {
-
-
-    const visible = useSelector( selectToastVisibility )
 
     const type = useSelector( selectToastType )
 
