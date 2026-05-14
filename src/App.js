@@ -6,6 +6,7 @@ import Home from './pages/home/home';
 import PostInfo from './pages/postInfo/postInfo';
 import AddPost from './pages/addPost/addPost';
 import NotFoundPage from './pages/notFound/notFound';
+import EmptyState from './components/empty/empty';
 
 import store from './store/store';
 import { fetchPosts } from './store/features/posts/posts.thunks';
