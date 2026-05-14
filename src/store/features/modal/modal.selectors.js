@@ -9,3 +9,5 @@ export const selectModalContent = (state) => state.modal.content
 export const selectModalConfirmButtonText = (state) => state.modal.confirmButtonText
 
 export const selectModalCancelButtonText = (state) => state.modal.cancelButtonText
+
+export const selectEntityId = (state) => state.modal.entity.id

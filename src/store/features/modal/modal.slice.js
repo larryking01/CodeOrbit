@@ -6,7 +6,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 
-
 const modalSlice = createSlice({
     name: 'modal',
     initialState: {
@@ -15,7 +14,10 @@ const modalSlice = createSlice({
         title: '',
         content: '',
         confirmButtonText: '',
-        cancelButtonText: ''
+        cancelButtonText: '',
+        entity: {
+            id: ''
+        }
     },
     reducers: {
         showModal(state, action) {
@@ -26,6 +28,7 @@ const modalSlice = createSlice({
             state.content = modalConfig.content 
             state.confirmButtonText = modalConfig.confirmButtonText
             state.cancelButtonText = modalConfig.cancelButtonText
+            state.entity.id = modalConfig.entity.id
         },
         clearModal(state) {
             state.visible = false 
@@ -34,6 +37,7 @@ const modalSlice = createSlice({
             state.content = ''
             state.confirmButtonText = ''
             state.cancelButtonText = ''
+            state.entity.id = ''
         }
     }
 })
