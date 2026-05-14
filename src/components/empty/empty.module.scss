@@ -1,0 +1,99 @@
+@use '../../style/variables' as *;
+
+
+
+
+
+
+
+.fadeIn {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.empty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+
+  &__card {
+    width: 100%;
+    max-width: 450px;
+    padding: 2.5rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #fff;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+    @media (max-width: 480px) {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  &__iconWrapper {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1.5rem;
+
+    background: $bg-light-grey;
+    border: 2px solid $brand-stroke-weak;
+    border-radius: 50%;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 0.8rem;
+
+    color: $blue-col;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__description {
+    max-width: 350px;
+
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.55;
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+    }
+  }
+}
