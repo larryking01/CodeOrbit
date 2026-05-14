@@ -1,0 +1,76 @@
+/* import global variables */
+@use '../../style/variables' as *;
+
+
+
+
+
+/* Using BEM styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal__container {
+    background-color: whitesmoke;
+    width: 30rem;
+    height: 15rem;
+    padding: 1rem;
+    border-radius: 0.625rem;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+
+    p {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
+
+.modal__closeIcon {
+    cursor: pointer;
+}
+
+.modal__content {
+    margin-bottom: 3rem;
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 10rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 0.625rem;
+    border: none;
+    font-size: 1rem;
+    color: $white-col;
+}
+
+.modal__button--yes {
+    background-color: $purple-col;
+}
+
+.modal__button--no {
+    background-color: $red-col;
+}

@@ -2,7 +2,7 @@ import styles from './post.module.scss'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
 import { IoMdBookmark } from "react-icons/io";
@@ -14,9 +14,12 @@ import PostAuthor from '../postAuthor/postAuthor';
 import { updatePostLikes, updatePostBookmarks } from '../../store/features/posts/posts.slice';
 import { selectPostLikedStatus, selectPostBookmarkedStatus } from '../../store/features/posts/posts.selectors';
 import { updatePostLikesAsync } from '../../store/features/posts/posts.thunks';
-import { useGetPostQuery, useGetCommentsByPostIdQuery, useDeletePostMutation } from '../../store/features/api/apiSlice';
+import { useGetPostQuery, useGetCommentsByPostIdQuery } from '../../store/features/api/apiSlice';
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 import { shortenTextLength } from '../../helpers/shortenTextLength';
+import { showModal } from '../../store/features/modal/modal.slice';
+
+
 
 
 
@@ -36,8 +39,6 @@ const Post = ({ post }) => {
     
     const dispatch = useDispatch()
 
-    const navigate = useNavigate()
-
     const isLiked = useSelector(state => selectPostLikedStatus(state, post.id))
 
     const isBookmarked = useSelector(state => selectPostBookmarkedStatus(state, post.id))
@@ -45,8 +46,6 @@ const Post = ({ post }) => {
     const { data: selectedPost } = useGetPostQuery(post.id)
 
     const { data: comments = [] } = useGetCommentsByPostIdQuery(post.id)
-
-    const [triggerDeletePostMutation] = useDeletePostMutation()
 
 
     // show "Read" or "Delete" action on post based on current route
@@ -66,29 +65,18 @@ const Post = ({ post }) => {
 
     // delete a post by its id
     const handleDeletePost = async (post) => {
-        try {
-            await triggerDeletePostMutation(post.id)
+        dispatch(showModal({
+            visible: true,
+            type: 'DELETE',
+            title: 'Delete Post?',
+            content: 'Are you sure you want to delete this post? This action cannot be undone.',
+            confirmButtonText: 'Yes, delete',
+            cancelButtonText: 'No, cancel',
+            entity: {
+                id: post.id
+            }
+        }))
 
-            dispatch(showToast({
-                type: 'success',
-                title: 'Post deleted 🎉',
-                content: 'Your post has been removed and is no longer visible.'
-            }))
-
-            navigate('/')
-        }
-        catch(error) {
-            dispatch(showToast({
-                type: 'error',
-                title: 'Failed to delete post',
-                content: 'We couldn’t delete your post right now. Please try again.'
-            }))
-        }
-        finally {
-            setTimeout(() => {
-                dispatch(clearToast())
-            }, 4000)
-        }
     }
 
 
