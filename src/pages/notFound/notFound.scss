@@ -1,0 +1,129 @@
+@use '../../style/variables' as *;
+
+
+
+
+
+.not-found {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-light-grey;
+
+  &__content {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: $purple-col;
+  }
+
+  &__image {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: $blue-col;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  &__description {
+    max-width: 520px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: $secondary-text-col;
+    margin-bottom: 2.5rem;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    background-color: $blue-col;
+    color: $white-col;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      background-color: $blue-col;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(22, 100, 226, 0.2);
+    }
+  }
+
+  &__button-icon {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+
+// responsive styling
+@media (max-width: 768px) {
+  .not-found {
+    padding: 1.5rem;
+
+    &__image-wrapper {
+      max-width: 320px;
+      margin-bottom: 1.5rem;
+    }
+
+    &__description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    &__button {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .not-found {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__description {
+      font-size: 0.9rem;
+    }
+
+    &__button {
+      padding: 0.95rem 1.5rem;
+      font-size: 0.95rem;
+    }
+  }
+}
