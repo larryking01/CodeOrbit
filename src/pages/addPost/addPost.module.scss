@@ -4,10 +4,6 @@
 
 
 /* using BEM style */
-.addPost {
-
-}
-
 .addPost__header {
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -32,6 +28,8 @@
     border-radius: 0.625rem;
     border: 1px solid $secondary-text-col;
     padding: 1rem;
+    line-height: 1.5rem;
+    font-size: 0.9rem;
 }
 
 .addPost__textarea {
@@ -39,6 +37,8 @@
     border-radius: 0.625rem;
     border: 1px solid $secondary-text-col;
     padding: 1rem;
+    line-height: 1.5rem;
+    font-size: 0.9rem;
 }
 
 .addPost__input-container {

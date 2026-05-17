@@ -477,6 +477,90 @@
         "isBookmarked": false,
         "isLiked": false
       }
+    },
+    {
+      "id": "xDIUwXDo9fI",
+      "title": "Leaving rejectWithValue Behind",
+      "content": "One thing I noticed after migrating to RTK Query is that I no longer need manual rejectWithValue handling for most server requests. RTK Query automatically exposes loading, error, and success states through generated hooks.",
+      "userId": "108",
+      "createdAt": "2026-05-17T15:08:01.676Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "rj2aL_a6cpE",
+      "title": "No More extraReducers Boilerplate",
+      "content": "With createAsyncThunk, I had to handle pending, fulfilled, and rejected cases manually inside extraReducers. RTK Query abstracts most of that away and gives cleaner server-state management out of the box.",
+      "userId": "103",
+      "createdAt": "2026-05-17T15:09:20.160Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "zv_Neah7nTs",
+      "title": "RTK Query vs createAsyncThunk",
+      "content": "createAsyncThunk gave me full control over async workflows using tools like getState, rejectWithValue, and unwrap. RTK Query feels more declarative because fetching, caching, and invalidation are built directly into the API layer.",
+      "userId": "101",
+      "createdAt": "2026-05-17T15:10:00.242Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "LtKa59udzaE",
+      "title": "Understanding RTK Query Cache Tags",
+      "content": "Learning providesTags and invalidatesTags made me understand how RTK Query keeps server data synchronized automatically. It replaces a lot of the manual refetch logic I previously wrote with thunks.",
+      "userId": "102",
+      "createdAt": "2026-05-17T15:13:21.572Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "U6Rl4cTX1aE",
+      "title": "Generated Hooks Feel Like Magic",
+      "content": "One of my favorite RTK Query features so far is automatic hook generation. Defining endpoints instantly gives hooks like useGetPostsQuery and useCreatePostMutation without writing custom selectors or dispatch logic.",
+      "userId": "104",
+      "createdAt": "2026-05-17T15:15:03.291Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "KBknMpH0_0M",
+      "title": "Server State Should Not Feel Manual",
+      "content": "After working with RTK Query, managing server state manually with slices and extraReducers now feels much more verbose. RTK Query centralizes API logic and simplifies component data fetching significantly.",
+      "userId": "109",
+      "createdAt": "2026-05-17T15:15:29.054Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
     }
   ],
   "comments": [
