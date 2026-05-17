@@ -18,7 +18,7 @@ import { useGetPostQuery, useGetCommentsByPostIdQuery } from '../../store/featur
 import { showToast, clearToast } from '../../store/features/toast/toast.sclice';
 import { shortenTextLength } from '../../helpers/shortenTextLength';
 import { showModal } from '../../store/features/modal/modal.slice';
-
+import { TimeAgo } from '../../helpers/timeAgo';
 
 
 
@@ -197,8 +197,8 @@ const Post = ({ post }) => {
                 </div>
 
                 <div className={styles.postCard__dateContainer}>
-                    <p className={styles.postCard__iconCount}>
-                        Last Updated: {new Date().toISOString().split('T')[0]}
+                    <p className={styles.postCard__lastUpdated}>
+                        Updated { TimeAgo( post.createdAt ) }
                     </p>
                 </div>
             </section>

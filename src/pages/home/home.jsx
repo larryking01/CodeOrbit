@@ -2,7 +2,7 @@ import styles from './home.module.scss'
 import { useGetPostsQuery } from '../../store/features/api/apiSlice'
 import Post from '../../components/post/post'
 import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
-
+import { useEffect } from 'react'
 
 
 
@@ -15,6 +15,10 @@ const Home = () => {
 
 
     const { data: posts = [], isLoading } = useGetPostsQuery()
+
+    useEffect(() => {
+        console.log("posts = ", posts)
+    },[ posts ])
 
     const renderedPosts = posts.map( post => (
         <Post post={ post } key={ post.id }/>
