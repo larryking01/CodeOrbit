@@ -70,8 +70,10 @@
   cursor: pointer;
 }
 
-.postCard__iconCount {
+.postCard__lastUpdated {
   align-self: flex-start;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 .postCard__dateContainer {

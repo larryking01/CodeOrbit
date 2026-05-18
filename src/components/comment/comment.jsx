@@ -33,7 +33,7 @@ const Comment = ({ postId }) => {
     return (
         <main className={ styles.comment }>
             { comments.length > 0 ? 
-                <h4>{ comments.length } Comments</h4>  
+                <h4>{ comments.length } Comment(s)</h4>  
                 :
                 <h4>No available comments</h4>      
             }

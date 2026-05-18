@@ -2,6 +2,8 @@ import styles from './home.module.scss'
 import { useGetPostsQuery } from '../../store/features/api/apiSlice'
 import Post from '../../components/post/post'
 import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
+import { useMemo } from 'react'
+
 
 
 
@@ -12,11 +14,19 @@ import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator
 
 
 const Home = () => {
-
+    
 
     const { data: posts = [], isLoading } = useGetPostsQuery()
 
-    const renderedPosts = posts.map( post => (
+    let sortedPosts = useMemo(() => {
+        let sorted = posts.slice().sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+        return sorted
+
+    }, [ posts ])
+
+
+
+    const renderedPosts = sortedPosts.map( post => (
         <Post post={ post } key={ post.id }/>
     ))
 

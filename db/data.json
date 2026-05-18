@@ -353,52 +353,38 @@
       }
     },
     {
-      "id": "mmTRr1pvwus",
-      "title": "Why Redux Toolkit Feels Cleaner",
-      "content": "After switching from classic Redux boilerplate to Redux Toolkit, managing reducers, actions, and async logic became significantly easier. The developer experience is honestly much smoother.",
-      "userId": "106",
-      "createdAt": "2026-05-13T15:12:34.120Z",
-      "reactions": {
-        "numberOfLikes": 0,
-        "numberOfComments": 0,
-        "numberOfBookmarks": 0,
-        "isBookmarked": false,
-        "isLiked": false
-      }
-    },
-    {
       "id": "6GIZ-L4UIhM",
       "title": "Optimistic Updates Are Amazing",
       "content": "Implemented optimistic post creation and deletion today. Seeing the UI update instantly before the server responds makes the application feel much faster and more responsive.",
-      "userId": "106",
+      "userId": "101",
       "createdAt": "2026-05-13T15:15:26.426Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
       "id": "pYn_dE1J7ic",
       "title": "Reducers Must Stay Predictable",
       "content": "One of the biggest lessons from learning Redux is understanding predictable state updates. Pure reducers make debugging easier because the same action always produces the same state transition.",
-      "userId": "106",
+      "userId": "103",
       "createdAt": "2026-05-13T15:16:15.846Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
       "id": "5DCN9-nCO5k",
       "title": "Migrating From Thunks to RTK Query",
       "content": "Started migrating my CRUD operations from createAsyncThunk to RTK Query. The amount of boilerplate removed is honestly impressive.",
-      "userId": "106",
+      "userId": "104",
       "createdAt": "2026-05-13T15:16:53.816Z",
       "reactions": {
         "numberOfLikes": 0,
@@ -412,35 +398,35 @@
       "id": "NsgGMjudiq0",
       "title": "Memoized Selectors Explained",
       "content": "Selectors using filter or map can return new references on every render. Memoizing them with createSelector helps prevent unnecessary re-renders and improves performance.",
-      "userId": "106",
+      "userId": "105",
       "createdAt": "2026-05-13T15:17:31.518Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
       "id": "7_PRN4UOXqI",
       "title": "Learning Cache Invalidation",
       "content": "RTK Query tags and invalidation finally clicked for me today. Mutations can invalidate cached queries and automatically trigger fresh data fetching.",
-      "userId": "106",
+      "userId": "103",
       "createdAt": "2026-05-13T15:19:35.018Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
       "id": "WuoImq4pbvg",
       "title": "The Difference Between Client and Server State",
       "content": "RTK Query handles server state beautifully, while Redux slices are still useful for UI state like modals, toasts, and theme preferences.",
-      "userId": "106",
+      "userId": "109",
       "createdAt": "2026-05-13T15:20:12.088Z",
       "reactions": {
         "numberOfLikes": 0,
@@ -454,7 +440,7 @@
       "id": "mB2mwu8Swhg",
       "title": "Immer Makes Redux Mutations Feel Natural",
       "content": "Redux Toolkit uses Immer under the hood, which allows writing reducers with mutation-like syntax while still preserving immutability internally.",
-      "userId": "106",
+      "userId": "108",
       "createdAt": "2026-05-13T15:20:39.300Z",
       "reactions": {
         "numberOfLikes": 0,
@@ -468,8 +454,106 @@
       "id": "LabpwNkAPTQ",
       "title": "RTK Query Mutation Hooks",
       "content": "Mutation hooks in RTK Query return both a trigger function and mutation state. Using unwrap() makes async handling feel very similar to createAsyncThunk.",
-      "userId": "106",
+      "userId": "101",
       "createdAt": "2026-05-13T15:21:24.331Z",
+      "reactions": {
+        "numberOfLikes": 1,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": true
+      }
+    },
+    {
+      "id": "xDIUwXDo9fI",
+      "title": "Leaving rejectWithValue Behind",
+      "content": "One thing I noticed after migrating to RTK Query is that I no longer need manual rejectWithValue handling for most server requests. RTK Query automatically exposes loading, error, and success states through generated hooks.",
+      "userId": "108",
+      "createdAt": "2026-05-17T15:08:01.676Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "rj2aL_a6cpE",
+      "title": "No More extraReducers Boilerplate",
+      "content": "With createAsyncThunk, I had to handle pending, fulfilled, and rejected cases manually inside extraReducers. RTK Query abstracts most of that away and gives cleaner server-state management out of the box.",
+      "userId": "103",
+      "createdAt": "2026-05-17T15:09:20.160Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "zv_Neah7nTs",
+      "title": "RTK Query vs createAsyncThunk",
+      "content": "createAsyncThunk gave me full control over async workflows using tools like getState, rejectWithValue, and unwrap. RTK Query feels more declarative because fetching, caching, and invalidation are built directly into the API layer.",
+      "userId": "101",
+      "createdAt": "2026-05-17T15:10:00.242Z",
+      "reactions": {
+        "numberOfLikes": 1,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": true
+      }
+    },
+    {
+      "id": "LtKa59udzaE",
+      "title": "Understanding RTK Query Cache Tags",
+      "content": "Learning providesTags and invalidatesTags made me understand how RTK Query keeps server data synchronized automatically. It replaces a lot of the manual refetch logic I previously wrote with thunks.",
+      "userId": "102",
+      "createdAt": "2026-05-17T15:13:21.572Z",
+      "reactions": {
+        "numberOfLikes": 1,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": true
+      }
+    },
+    {
+      "id": "U6Rl4cTX1aE",
+      "title": "Generated Hooks Feel Like Magic",
+      "content": "One of my favorite RTK Query features so far is automatic hook generation. Defining endpoints instantly gives hooks like useGetPostsQuery and useCreatePostMutation without writing custom selectors or dispatch logic.",
+      "userId": "104",
+      "createdAt": "2026-05-17T15:15:03.291Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "-h2HhkEUVEc",
+      "title": "Server State Should Not Feel Manual",
+      "content": "After working with RTK Query, managing server state manually with slices and extraReducers now feels much more verbose. RTK Query centralizes API logic and simplifies component data fetching significantly.",
+      "userId": "109",
+      "createdAt": "2026-05-18T13:39:59.769Z",
+      "reactions": {
+        "numberOfLikes": 0,
+        "numberOfComments": 0,
+        "numberOfBookmarks": 0,
+        "isBookmarked": false,
+        "isLiked": false
+      }
+    },
+    {
+      "id": "XAtldT8e89s",
+      "title": "Why Redux Toolkit Feels Cleaner",
+      "content": "After switching from classic Redux boilerplate to Redux Toolkit, managing reducers, actions, and async logic became significantly easier. The developer experience is honestly much smoother.\n\n\n",
+      "userId": "106",
+      "createdAt": "2026-05-18T13:54:36.278Z",
       "reactions": {
         "numberOfLikes": 0,
         "numberOfComments": 0,
@@ -787,6 +871,48 @@
       "postId": null,
       "userId": "106",
       "createdAt": "2026-05-13T15:10:30.212Z"
+    },
+    {
+      "id": "TPs96OjEGD0",
+      "content": "One Aha moment for me was realizing that thunks are only marked as rejected when we throw or rejectWithValue. Otherwise, your thunk will always be successful regardless.\n",
+      "postId": "11",
+      "userId": "101",
+      "createdAt": "2026-05-15T12:36:27.254Z"
+    },
+    {
+      "id": "b5RBc75SW7s",
+      "content": ",",
+      "postId": "11",
+      "userId": "102",
+      "createdAt": "2026-05-15T12:36:41.815Z"
+    },
+    {
+      "id": "UaT3D-6-l7M",
+      "content": "RTK Query is a real game-changer. \n",
+      "postId": "5DCN9-nCO5k",
+      "userId": "105",
+      "createdAt": "2026-05-17T14:22:20.333Z"
+    },
+    {
+      "id": "dBOWuLOrs5Y",
+      "content": "RTK Query is every redux developer's best friend. However, I believe you should start out with thunks first to truly appreciate how easy RTK query makes things.",
+      "postId": "5DCN9-nCO5k",
+      "userId": "103",
+      "createdAt": "2026-05-17T14:23:33.089Z"
+    },
+    {
+      "id": "3Pxu7pBi__M",
+      "content": "That's it. Tags provide a way to link queries to mutations.",
+      "postId": "7_PRN4UOXqI",
+      "userId": "108",
+      "createdAt": "2026-05-17T14:28:09.146Z"
+    },
+    {
+      "id": "H7K2jf6ijNA",
+      "content": "Ha! magical way to keep your users going",
+      "postId": "6GIZ-L4UIhM",
+      "userId": "101",
+      "createdAt": "2026-05-17T14:31:12.662Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
