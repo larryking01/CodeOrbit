@@ -387,11 +387,11 @@
       "userId": "103",
       "createdAt": "2026-05-13T15:16:15.846Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -415,11 +415,11 @@
       "userId": "105",
       "createdAt": "2026-05-13T15:17:31.518Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -429,11 +429,11 @@
       "userId": "103",
       "createdAt": "2026-05-13T15:19:35.018Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -471,11 +471,11 @@
       "userId": "101",
       "createdAt": "2026-05-13T15:21:24.331Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -513,11 +513,11 @@
       "userId": "101",
       "createdAt": "2026-05-17T15:10:00.242Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -527,11 +527,11 @@
       "userId": "102",
       "createdAt": "2026-05-17T15:13:21.572Z",
       "reactions": {
-        "numberOfLikes": 0,
+        "numberOfLikes": 1,
         "numberOfComments": 0,
         "numberOfBookmarks": 0,
         "isBookmarked": false,
-        "isLiked": false
+        "isLiked": true
       }
     },
     {
@@ -549,11 +549,11 @@
       }
     },
     {
-      "id": "KBknMpH0_0M",
+      "id": "-h2HhkEUVEc",
       "title": "Server State Should Not Feel Manual",
       "content": "After working with RTK Query, managing server state manually with slices and extraReducers now feels much more verbose. RTK Query centralizes API logic and simplifies component data fetching significantly.",
       "userId": "109",
-      "createdAt": "2026-05-17T15:15:29.054Z",
+      "createdAt": "2026-05-18T13:39:59.769Z",
       "reactions": {
         "numberOfLikes": 0,
         "numberOfComments": 0,

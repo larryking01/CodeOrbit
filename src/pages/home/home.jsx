@@ -2,7 +2,9 @@ import styles from './home.module.scss'
 import { useGetPostsQuery } from '../../store/features/api/apiSlice'
 import Post from '../../components/post/post'
 import LoadingIndicator from '../../components/loadingIndicator/loadingIndicator'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+
 
 
 
@@ -12,15 +14,21 @@ import { useEffect } from 'react'
 
 
 const Home = () => {
-
+    
+    const [ sortedPosts, setSortedPosts ] = useState([])
 
     const { data: posts = [], isLoading } = useGetPostsQuery()
 
     useEffect(() => {
+        let sorted = posts.slice().sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+        setSortedPosts( sorted )
+        
         console.log("posts = ", posts)
+        console.log("sorted posts = ", sortedPosts)
     },[ posts ])
 
-    const renderedPosts = posts.map( post => (
+
+    const renderedPosts = sortedPosts.map( post => (
         <Post post={ post } key={ post.id }/>
     ))
 
